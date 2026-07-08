@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asistente IA · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html" class="active"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend. Sistema de Gestión Administrativa · Facultad de Matemáticas · UADY</div>
+  <div class="topbar">
+    <div class="crumbs"><b>Asistente IA</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Asistente IA</div>
+        <div class="page-sub">Consulta con tus permisos (<b>SECRETARIA · FMAT</b>) · Toda acción que salga del sistema requiere <b>tu confirmación explícita</b> y queda en auditoría</div>
+      </div>
+    </div>
+
+    <div class="chat-layout">
+
+      <!-- Conversación -->
+      <div class="card chat-box">
+        <div class="chat-scroll">
+
+          <div class="msg bot">
+            <div class="msg-bubble">
+              Buenos días, Landy. Puedo responder sobre <span class="hl">expedientes, contratos, pagos y presupuesto</span> de FMAT,
+              y prepararte borradores de correo. ¿En qué te ayudo?
+            </div>
+            <div class="msg-meta"><span class="src ai">AI_AGENT</span> sesión iniciada · permisos: SECRETARIA</div>
+          </div>
+
+          <div class="msg user">
+            <div class="msg-bubble">¿Qué le falta a Jorge Pech para poder contratarlo?</div>
+            <div class="msg-meta">Landy Canul · 9:02</div>
+          </div>
+
+          <div class="msg bot">
+            <div class="msg-bubble">
+              El expediente del <span class="hl">Dr. Jorge Pech Yam</span> (Diplomado en Estadística Aplicada) tiene
+              <span class="hl">4 de 7 requisitos aprobados</span>. Para pasar a <b>LISTO PARA CONTRATO</b> falta:
+              <ul>
+                <li><b>Carátula de estado de cuenta bancaria</b> — solicitada 2 veces (20 y 30 jun), sin recibir.</li>
+                <li><b>Comprobante de domicilio</b> — sin recibir.</li>
+                <li><b>Cédula profesional</b> — recibida pero <b>OBSERVADA</b>: escaneo de lado, última página ilegible.</li>
+              </ul>
+            </div>
+            <div class="msg-meta"><span class="src ai">AI_AGENT</span> consulta de lectura · fuente: expediente de J. Pech · checklist HONORARIOS</div>
+          </div>
+
+          <div class="msg user">
+            <div class="msg-bubble">Redáctale el recordatorio con eso, por favor</div>
+            <div class="msg-meta">Landy Canul · 9:03</div>
+          </div>
+
+          <div class="msg bot" style="max-width:92%">
+            <div class="msg-bubble">
+              Listo, aquí está el borrador. <b>No se envía nada hasta que tú lo confirmes.</b>
+              <div class="proposal">
+                <div class="proposal-head">✦ Propuesta del asistente — requiere tu confirmación</div>
+                <div class="proposal-body">
+                  <div class="p-field"><b>Para:</b> jorge.pech@correo.uady.mx</div>
+                  <div class="p-field"><b>Asunto:</b> Documentos pendientes — Diplomado en Estadística Aplicada</div>
+                  <div class="proposal-text">Estimado Dr. Pech:
+
+Para completar su expediente y proceder con la elaboración de su contrato, nos falta recibir:
+
+1. Carátula de estado de cuenta bancaria (donde sea visible la CLABE).
+2. Comprobante de domicilio (no mayor a 3 meses).
+3. Re-escaneo de su cédula profesional en orientación correcta — la copia recibida no se aprecia completa.
+
+Puede responder a este correo adjuntando los documentos en PDF, o subirlos directamente en este enlace seguro (no requiere contraseña y muestra su lista de faltantes): [enlace de subida del expediente]
+
+Saludos cordiales,
+Secretaría Administrativa · Facultad de Matemáticas, UADY</div>
+                </div>
+                <div class="proposal-actions">
+                  <button class="btn sm gold" onclick="sendProposal(this)">Confirmar y enviar ✓</button>
+                  <button class="btn sm" onclick="mockAction('Borrador abierto para edición (simulado)')">Editar</button>
+                  <button class="btn sm" onclick="discardProposal(this)">Descartar</button>
+                  <span class="note">se registrará: propuesta AI_AGENT · confirmación WEB</span>
+                </div>
+              </div>
+            </div>
+            <div class="msg-meta"><span class="src ai">AI_AGENT</span> borrador generado con datos del checklist — sin acceso a PII cifrada</div>
+          </div>
+
+          <div class="msg user">
+            <div class="msg-bubble">¿Cuánto llevamos ejercido en el diplomado?</div>
+            <div class="msg-meta">Landy Canul · 9:05</div>
+          </div>
+
+          <div class="msg bot">
+            <div class="msg-bubble">
+              Del <span class="hl">Diplomado en Estadística Aplicada</span> se ha ejercido
+              <span class="hl">$96,500 de $180,000</span> en el rubro de honorarios (54%).
+              Hay <b>2 pagos en proceso</b> por $28,300 que, al completarse, dejarían el rubro en 69%.
+              Puedes ver el detalle por rubro en <a class="link" href="proyectos.html">Proyectos</a>.
+            </div>
+            <div class="msg-meta"><span class="src ai">AI_AGENT</span> consulta de lectura · fuente: rubros de presupuesto y pagos del proyecto</div>
+          </div>
+
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Pregunta por un expediente, folio, pago o presupuesto… (Enter para enviar)">
+          <button class="btn primary" onclick="chatDemo(this.previousElementSibling)">Enviar</button>
+        </div>
+      </div>
+
+      <!-- Lateral: reglas del asistente -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Qué puede — y qué no</div></div>
+          <div class="card-body">
+            <ul class="guard-list">
+              <li><span class="g-ico">✅</span><span><b>Lee</b> expedientes, contratos, pagos y presupuesto — solo lo que tu rol permite ver.</span></li>
+              <li><span class="g-ico">✅</span><span><b>Propone</b> borradores de correo y acciones con los datos reales del folio.</span></li>
+              <li><span class="g-ico">🔒</span><span><b>Nunca envía ni modifica nada</b> sin tu confirmación explícita. Sin excepciones.</span></li>
+              <li><span class="g-ico">🔒</span><span><b>No accede a PII cifrada</b> (RFC, CURP, CLABE): trabaja con datos enmascarados.</span></li>
+              <li><span class="g-ico">📋</span><span>Cada respuesta cita <b>de dónde salió el dato</b>. Si no lo encuentra, lo dice — no inventa.</span></li>
+              <li><span class="g-ico">≡</span><span>Toda la sesión queda en <b>auditoría</b>: pregunta, fuentes consultadas y acciones confirmadas.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Consultas frecuentes</div></div>
+          <div class="card-body" style="display:flex; flex-direction:column; gap:8px">
+            <button class="btn sm" style="justify-content:flex-start" onclick="mockAction('Consulta enviada al asistente (simulado)')">¿Qué expedientes están incompletos?</button>
+            <button class="btn sm" style="justify-content:flex-start" onclick="mockAction('Consulta enviada al asistente (simulado)')">¿Qué contratos llevan +72 h sin movimiento?</button>
+            <button class="btn sm" style="justify-content:flex-start" onclick="mockAction('Consulta enviada al asistente (simulado)')">¿Qué complementos de pago faltan?</button>
+            <button class="btn sm" style="justify-content:flex-start" onclick="mockAction('Consulta enviada al asistente (simulado)')">Resumen semanal para el Director</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

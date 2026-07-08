@@ -5,4 +5,33 @@ en este docuemto lo que se haran son las preguintas que hay que reposnderse o lo
 ## preguntas 
 
 1) ¿cada cuanto n8n hará el barrido para chehacr los estados de los procesos?
+
+**RESUELTO (consenso definitivo).** El barrido **no es un solo proceso global**: se divide
+en **tres niveles de frecuencia**, y todos los umbrales viven en la tabla
+`configuracion_automatizacion` (nunca hardcodeados), configurables por unidad.
+
+| nivel | cada cuánto corre | qué revisa | ejecutor |
+|---|---|---|---|
+| **crítico** | cada **1 h**, solo en horario laboral (L–V 7:00–20:00) | contratos/observaciones vencidos (24/48/72h), correos sin respuesta, respaldo de M4 | n8n |
+| **diario** | 1×/día a las **7:00** (antes de la jornada) | expedientes incompletos, pagos y complementos pendientes, semáforos del dashboard | n8n |
+| **nocturno** | 1×/día a las **2:00** | mantenimiento: normalización de nombres, mapeo de carpetas OneDrive, reportes | n8n |
+
+**Por qué esta cadencia y no otra:**
+- **Se ajusta a la regla de negocio más fina, que es el umbral de 24 h.** Un barrido crítico
+  cada hora detecta un vencimiento de 24 h con ≤1 h de retraso: más que suficiente. Bajar a
+  cada 5 min no aporta nada operativo (nadie reacciona en minutos a un "sin movimiento") y sí
+  multiplica llamadas a Graph y ejecuciones de n8n.
+- **El crítico corre solo en horario laboral** porque sus alertas las consume una persona en
+  su jornada; correrlo de madrugada generaría alertas que nadie ve y gastaría cuota de API.
+- **El diario a las 7:00** hace que la secretaría abra el sistema con la lista de pendientes
+  ya lista, alineado con el ritmo humano real de trabajo.
+- **El nocturno a las 2:00** hace el mantenimiento pesado cuando la carga es cero.
+- Es coherente con RNF_11 (regla 2: *ausencia = M1*): solo un barrido por tiempo puede
+  detectar **lo que NO pasó**; un evento no existe para algo que no ocurrió.
+
+**Descartado:** (a) un único barrido global —forzaría una sola frecuencia: demasiado seguido
+para mantenimiento o demasiado lento para vencimientos; (b) puro event-driven sin barrido —no
+puede ver ausencias. Como los umbrales ya son configurables, una unidad de alto volumen puede
+apretar el crítico a 30 min sin tocar código.
+
 2) ¿

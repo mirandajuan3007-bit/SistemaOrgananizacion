@@ -356,10 +356,16 @@ Las **transiciones válidas** entre estos estados están en
 
 Estos puntos no están cerrados en los requisitos y conviene decidirlos antes de implementar:
 
-1. ¿Se extrae `personas` (datos fiscales únicos) de `participantes` desde ya, o se difiere?
-   Impacta el anti-duplicado entre proyectos.
-2. ¿El `folio` de contrato es por unidad o global? (RF_08 dice "unívoco dentro de la unidad").
-3. Política de retención concreta de PII (RNF_07 menciona ~5 años fiscales) — falta el número
-   oficial de la institución.
-4. `preguntas.md` deja abierto cada cuánto corre el barrido de n8n — RNF_11 ya propone
-   crítico 1h / diario / nocturno; confirmar que ese consenso es el definitivo.
+1. **[RESUELTO — diferir]** Entidad `personas` (datos fiscales únicos) NO se extrae en el MVP.
+   Los duplicados entre proyectos se resuelven por hash del RFC (como ya está modelado). Se
+   extraerá solo cuando una misma persona aparezca de forma recurrente entre proyectos.
+2. **[RESUELTO — por unidad]** El `folio` de contrato es **único por unidad**
+   (`UNIQUE(unidad_id, folio)`), coherente con RF_08 y el diseño multi-tenant.
+3. **[RESUELTO]** Retención de PII: **5 años**, contados desde el cierre de la relación con el
+   proyecto / último ejercicio fiscal (no desde la creación del registro). Alineado con la
+   retención fiscal mexicana (CFF art. 30). El "borrado" se implementa como **crypto-erasure**
+   (destruir la llave del registro + `NULL` en las columnas `BYTEA`), no `DELETE`, para no
+   romper el soft-delete ni el `audit_log` inmutable. Detalle en RNF_07.
+4. **[RESUELTO]** Cadencia del barrido n8n: se adopta el consenso de RNF_11 como definitivo —
+   **crítico 1h laboral / diario 7:00 / nocturno 2:00**, umbrales configurables por unidad.
+   Justificación en `ideas/preguntas.md`.

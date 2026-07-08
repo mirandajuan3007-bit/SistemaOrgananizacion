@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato 2026-014 · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html" class="active"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend. Sistema de Gestión Administrativa · Facultad de Matemáticas · UADY</div>
+  <div class="topbar">
+    <div class="crumbs">Contratos <span class="sep">/</span> Diplomado en Estadística Aplicada <span class="sep">/</span> <b>CONTRATO-2026-014</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+    <a class="btn-ai" href="asistente.html"><span class="spark">✦</span> Preguntar al asistente</a>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">CONTRATO-2026-014 · Mtro. Daniel Couoh Uc</div>
+        <div class="page-sub">
+          HONORARIOS · Instructor del módulo de Series de Tiempo · <a class="link" href="proyectos.html">Diplomado en Estadística Aplicada</a> · Periodo: 1 ago — 30 nov 2026 · Monto: $38,000.00
+        </div>
+      </div>
+      <div class="actions">
+        <span class="chip crit" style="align-self:center"><span class="dot"></span> 96 H SIN MOVIMIENTO</span>
+        <button class="btn gold" onclick="openModal('modal-recordatorio')">Enviar recordatorio</button>
+      </div>
+    </div>
+
+    <!-- Máquina de estados del contrato -->
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-body" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px">
+        <div class="stepper">
+          <div class="step done"><span class="s-dot">✓</span><span class="s-name">Borrador</span></div>
+          <div class="step-line done"></div>
+          <div class="step done"><span class="s-dot">✓</span><span class="s-name">Enviado</span></div>
+          <div class="step-line done"></div>
+          <div class="step current"><span class="s-dot">3</span><span class="s-name">En revisión</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">4</span><span class="s-name">Aprobado</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">5</span><span class="s-name">Firmado</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">6</span><span class="s-name">Vigente</span></div>
+        </div>
+        <div class="small muted">En revisión del <b>despacho externo</b> desde el 2 jul. Si hay observaciones, el estado pasará a <b>OBSERVADO</b> y volverá aquí al atenderlas.</div>
+      </div>
+    </div>
+
+    <div class="grid-31">
+
+      <!-- Seguimiento por folio -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Seguimiento por folio <span class="count">4 comunicaciones</span></div>
+            <div class="right"><span class="src n8n">N8N_FLOW</span><span class="small muted">correos asociados por folio en el asunto</span></div>
+          </div>
+          <div class="card-body" style="padding-top:14px">
+            <div class="timeline">
+              <div class="tl-item crit now">
+                <div class="tl-head"><span class="tl-state">Sin respuesta del despacho</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">El barrido de hoy 7:00 detectó <b>96 h sin movimiento</b> desde el último envío — alerta generada en el panel</div>
+                <div class="tl-date">hoy · 7:00</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">ENVIADO → despacho externo</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Versión v2 del contrato enviada a <b>revision@despachocontable.mx</b> con folio en el asunto — enviada por ti desde el sistema</div>
+                <div class="tl-date">2 jul · 10:14</div>
+              </div>
+              <div class="tl-item ok">
+                <div class="tl-head"><span class="tl-state">RECIBIDO ← despacho externo</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">Respuesta con 1 observación, asociada automáticamente por el folio del asunto → estado pasó a OBSERVADO</div>
+                <div class="tl-date">26 jun · 13:40</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">ENVIADO → despacho externo</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Versión v1 del contrato enviada a revisión externa</div>
+                <div class="tl-date">24 jun · 9:05</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Observaciones <span class="count">1 atendida · 0 pendientes</span></div>
+          </div>
+          <div class="card-body flush">
+            <div class="doc-row">
+              <div class="doc-ico">✎</div>
+              <div>
+                <div class="doc-name">Cláusula tercera: periodo no coincidía con el oficio de autorización</div>
+                <div class="doc-sub">severidad CRÍTICA · creada 26 jun por respuesta del despacho · atendida 1 jul con la versión v2</div>
+              </div>
+              <div class="doc-right">
+                <span class="chip ok"><span class="dot"></span> ATENDIDA</span>
+                <button class="btn sm" onclick="openModal('modal-versiones-contrato')">Ver versiones</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Lateral -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Datos del contrato</div></div>
+          <div class="card-body">
+            <div class="pii-grid">
+              <div class="pii-field"><label>Folio</label><div class="pii-value"><span>CONTRATO-2026-014</span></div></div>
+              <div class="pii-field"><label>Tipo</label><div class="pii-value"><span>HONORARIOS</span></div></div>
+              <div class="pii-field"><label>Monto</label><div class="pii-value"><span>$38,000.00</span></div></div>
+              <div class="pii-field"><label>Rubro</label><div class="pii-value"><span>Honorarios instr.</span></div></div>
+              <div class="pii-field"><label>Versión vigente</label><div class="pii-value"><span>v2 · <span class="mono">sha256 ✓</span></span></div></div>
+              <div class="pii-field"><label>Revisor externo</label><div class="pii-value"><span>Despacho contable</span></div></div>
+            </div>
+            <div class="pii-note">▣ <span>El expediente del participante quedó <b>COMPLETO</b> el 20 jun — por eso se habilitó la generación de este contrato.</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Acciones</div></div>
+          <div class="card-body" style="display:flex; flex-direction:column; gap:8px">
+            <button class="btn" style="justify-content:flex-start" onclick="mockAction('Abriendo contrato v2 desde OneDrive/SharePoint…')">📄 Ver contrato (v2, vigente)</button>
+            <button class="btn" style="justify-content:flex-start" onclick="openModal('modal-respuesta')">✉ Registrar respuesta recibida fuera del sistema</button>
+            <button class="btn" style="justify-content:flex-start" onclick="mockAction('Alerta escalada al Director con el historial del folio')">⤴ Escalar al Director</button>
+            <button class="btn danger-ghost" style="justify-content:flex-start" onclick="mockAction('Cancelación requiere justificación — se registrará en auditoría')">✕ Cancelar contrato…</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">✦ Sugerencia del asistente</div></div>
+          <div class="card-body">
+            <p style="font-size:12.8px; line-height:1.55; color:var(--ink-2)">
+              Este es el <b>2.º recordatorio</b> que haría falta enviar al despacho por este folio.
+              El promedio de respuesta del despacho este año es de <b>3.1 días</b> — este ya lleva 4.
+              Puedo preparar el recordatorio citando el historial completo.
+            </p>
+            <div style="margin-top:12px; display:flex; gap:8px">
+              <button class="btn sm gold" onclick="openModal('modal-recordatorio')">Preparar recordatorio</button>
+              <button class="btn sm" onclick="mockAction('Sugerencia ocultada')">Ahora no</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: recordatorio -->
+<div class="modal-backdrop" id="modal-recordatorio">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Recordatorio listo para enviar</div>
+      <button class="modal-x" onclick="closeModal('modal-recordatorio')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Para</label><input type="text" value="revision@despachocontable.mx" readonly></div>
+      <div class="field"><label>Asunto</label><input type="text" value="Seguimiento CONTRATO-2026-014 — Diplomado en Estadística Aplicada" readonly></div>
+      <div class="field">
+        <label>Mensaje (editable)</label>
+        <textarea>Estimado despacho:
+
+Le escribimos para dar seguimiento al contrato con folio CONTRATO-2026-014, enviado a revisión el 2 de julio (versión v2, que atiende la observación del 26 de junio). A la fecha no hemos recibido respuesta.
+
+Agradeceremos nos indique el estado de la revisión o las observaciones correspondientes.
+
+Saludos cordiales,
+Secretaría Administrativa · Facultad de Matemáticas, UADY</textarea>
+      </div>
+      <p class="small muted">El folio va en el asunto: la respuesta del despacho se asociará sola a este contrato.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-recordatorio')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-recordatorio'); mockAction('Recordatorio enviado al despacho', 'source: WEB · vía Outlook/Graph')">Confirmar y enviar ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: registrar respuesta manual -->
+<div class="modal-backdrop" id="modal-respuesta">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Registrar respuesta recibida fuera del sistema</div>
+      <button class="modal-x" onclick="closeModal('modal-respuesta')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Resultado de la revisión</label>
+        <select>
+          <option>Aprobado sin observaciones → pasa a APROBADO</option>
+          <option>Con observaciones → pasa a OBSERVADO (captúralas abajo)</option>
+        </select>
+      </div>
+      <div class="field"><label>Observaciones (si aplica)</label><textarea placeholder="una por línea; cada una se registrará y se podrá dar seguimiento"></textarea></div>
+      <div class="dropzone" onclick="mockAction('Selector de archivo (simulado)')">
+        <span class="dz-ico">📎</span>
+        Adjunta el correo o documento de respuesta como evidencia
+        <div class="dz-note">PDF o MSG · quedará ligado al folio</div>
+      </div>
+      <p class="small muted" style="margin-top:13px">Para cuando el despacho responde por teléfono o a un correo personal: la trazabilidad del folio no se rompe.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-respuesta')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-respuesta'); mockAction('Respuesta registrada — estado actualizado', 'STATE_CHANGED · registrado por Landy Canul')">Registrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: versiones del contrato -->
+<div class="modal-backdrop" id="modal-versiones-contrato">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">CONTRATO-2026-014 — versiones</div>
+      <button class="modal-x" onclick="closeModal('modal-versiones-contrato')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="version-list">
+        <div class="v-row">
+          <span class="v-tag now">v2 · VIGENTE</span>
+          <span>contrato_2026-014_v2.pdf — corrige cláusula tercera</span>
+          <span class="muted" style="margin-left:auto">1 jul · generada por el sistema</span>
+        </div>
+        <div class="v-row">
+          <span class="v-tag">v1</span>
+          <span>contrato_2026-014_v1.pdf — observada por el despacho</span>
+          <span class="muted" style="margin-left:auto">24 jun · en historial</span>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:13px">Cada versión queda ligada a la observación que la originó. Nada se pierde ni se sobrescribe.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-versiones-contrato')">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -131,8 +131,28 @@ Los campos cifrados están marcados con una anotación especial (por ejemplo, un
 **en el flujo de datos con PII**
 Existe un diagrama de flujo que muestra el ciclo de vida de un dato sensible: desde dónde se captura (formulario del frontend), cómo viaja (HTTPS, nunca en texto plano en logs), cómo se almacena (cifrado en base de datos), y desde dónde es accesible (solo por roles autorizados via endpoint protegido).
 
-**en la política de retención**
-Se documenta cuánto tiempo se conservan los datos personales de participantes después de que termina su relación con el proyecto. Por ejemplo, los datos bancarios se mantienen el tiempo que establecen las políticas de archivo institucional (típicamente 5 años para documentos fiscales) y luego se eliminan o anonimizan según las instrucciones de la institución.
+**en la política de retención (DECIDIDO)**
+Los datos personales sensibles de un participante se conservan **5 años**, contados **a partir
+del cierre de su relación con el proyecto / último ejercicio fiscal en que se le pagó**, no
+desde la creación del registro. Este plazo se alinea con la retención de comprobantes fiscales
+en México (CFF art. 30, ~5 años) y con las políticas de archivo institucional.
+
+Cumplido el plazo, la eliminación **no se hace con `DELETE`**: el modelo usa soft-delete y un
+`audit_log` inmutable, así que un borrado físico rompería integridad e historial. En su lugar
+se aplica **crypto-erasure (borrado criptográfico)**:
+
+- se destruye la llave de cifrado del registro (o se rota fuera del alcance de ese registro), y
+- se sobrescribe la columna `BYTEA` con `NULL`,
+
+con lo que el dato queda irrecuperable pero la fila (folios, montos no-PII, trazabilidad)
+sobrevive para efectos de auditoría. La ejecución de esta purga es un barrido **M1 nocturno**
+(RNF_11) que selecciona participantes cuyo cierre supera los 5 años, y cada purga queda
+registrada en `audit_log`. El plazo de 5 años es **configurable por unidad** en
+`configuracion_automatizacion`, no una constante de código.
+
+*Pendiente menor de confirmar con la institución:* si los documentos con PII almacenados en
+OneDrive/SharePoint (INE, comprobantes) se purgan en el mismo plazo o siguen otra política de
+archivo documental.
 
 **en el aviso de privacidad del sistema**
 El sistema muestra un aviso de privacidad al primer login de cada usuario que explica qué datos se recaban, para qué, y cuáles son sus derechos. Esto cumple con el requisito de información al interesado establecido en la LGPDPPSO.

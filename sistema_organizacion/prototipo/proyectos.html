@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html" class="active"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend. Sistema de Gestión Administrativa · Facultad de Matemáticas · UADY</div>
+  <div class="topbar">
+    <div class="crumbs"><b>Proyectos</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+    <a class="btn-ai" href="asistente.html"><span class="spark">✦</span> Preguntar al asistente</a>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Proyectos</div>
+        <div class="page-sub">3 vigentes · 1 en cierre · Presupuesto total vigente: <b>$493,000.00</b> — ejercido: <b>$276,790.00 (56%)</b></div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="openModal('modal-nuevo-proyecto')">+ Nuevo proyecto</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-head">
+        <div class="card-title">Proyectos de la unidad <span class="count">(5)</span></div>
+      </div>
+      <div class="card-body flush table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Proyecto</th>
+              <th>Cliente / origen</th>
+              <th>Periodo</th>
+              <th class="num">Participantes</th>
+              <th class="num">Presupuesto</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="rowlink" onclick="mockAction('Abriendo detalle del proyecto (abajo se muestra el ejemplo)')">
+              <td><div class="cell-main">Diplomado en Estadística Aplicada</div><div class="cell-sub">PROY-2026-003 · responsable: Dra. R. Medina</div></td>
+              <td>Inscripción abierta (autofinanciado)</td>
+              <td>ago — nov 2026</td>
+              <td class="num">6</td>
+              <td class="num"><b>$230,000</b><div class="cell-sub">ejercido 62%</div></td>
+              <td><span class="chip ok"><span class="dot"></span> ACTIVO</span></td>
+              <td><a class="btn sm" href="expediente.html" onclick="event.stopPropagation()">Expedientes</a></td>
+            </tr>
+            <tr class="rowlink" onclick="mockAction('Detalle del proyecto CANACO (simulado)')">
+              <td><div class="cell-main">Curso de Ciencia de Datos</div><div class="cell-sub">PROY-2026-005 · responsable: Dr. F. Aguilar</div></td>
+              <td>CANACO Mérida</td>
+              <td>jul — sep 2026</td>
+              <td class="num">4</td>
+              <td class="num"><b>$118,000</b><div class="cell-sub">ejercido 38%</div></td>
+              <td><span class="chip ok"><span class="dot"></span> ACTIVO</span></td>
+              <td><a class="btn sm" href="contrato.html" onclick="event.stopPropagation()">Contratos</a></td>
+            </tr>
+            <tr class="rowlink" onclick="mockAction('Detalle del proyecto SSY (simulado)')">
+              <td><div class="cell-main">Consultoría Actuarial</div><div class="cell-sub">PROY-2026-002 · responsable: Dr. E. Solís</div></td>
+              <td>Servicios de Salud de Yucatán</td>
+              <td>mar — dic 2026</td>
+              <td class="num">4</td>
+              <td class="num"><b>$145,000</b><div class="cell-sub">ejercido 61%</div></td>
+              <td><span class="chip ok"><span class="dot"></span> ACTIVO</span></td>
+              <td><a class="btn sm" href="pagos.html" onclick="event.stopPropagation()">Pagos</a></td>
+            </tr>
+            <tr class="rowlink" onclick="mockAction('Detalle del proyecto en cierre (simulado)')">
+              <td><div class="cell-main">Curso de Riesgo Financiero</div><div class="cell-sub">PROY-2026-001 · responsable: Dra. L. Ramayo</div></td>
+              <td>Colegio de Actuarios de Yucatán</td>
+              <td>ene — may 2026</td>
+              <td class="num">3</td>
+              <td class="num"><b>$86,000</b><div class="cell-sub">ejercido 100%</div></td>
+              <td><span class="chip warn"><span class="dot"></span> EN CIERRE</span></td>
+              <td><button class="btn sm gold" onclick="event.stopPropagation(); openModal('modal-cierre')">Cerrar</button></td>
+            </tr>
+            <tr class="rowlink" onclick="mockAction('Proyecto cerrado — solo lectura, cierre presupuestal disponible')">
+              <td><div class="cell-main">Verano de la Ciencia 2025</div><div class="cell-sub">PROY-2025-011 · responsable: Dr. F. Aguilar</div></td>
+              <td>CONACyT / interno</td>
+              <td>jun — ago 2025</td>
+              <td class="num">9</td>
+              <td class="num"><b>$210,000</b><div class="cell-sub">cierre: $208,400</div></td>
+              <td><span class="chip neutral"><span class="dot"></span> CERRADO</span></td>
+              <td><button class="btn sm" onclick="event.stopPropagation(); mockAction('Cierre presupuestal descargado (PDF)')">Cierre ⬇</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-31">
+
+      <!-- Presupuesto por rubro del proyecto seleccionado -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Presupuesto por rubro — Diplomado en Estadística Aplicada</div>
+          <div class="right"><span class="small muted">se actualiza con cada pago registrado</span></div>
+        </div>
+        <div class="card-body flush">
+
+          <div class="budget-row">
+            <div class="budget-top">
+              <span class="b-name">Honorarios de instructores</span>
+              <span class="b-nums"><b>$96,500</b> de $180,000 · 54%</span>
+            </div>
+            <div class="budget-track"><div class="budget-fill" style="width:54%"></div></div>
+          </div>
+
+          <div class="budget-row">
+            <div class="budget-top">
+              <span class="b-name">Materiales y difusión</span>
+              <span class="b-nums"><b>$22,400</b> de $20,000 · <b style="color:var(--crit)">112% — sobregirado</b></span>
+            </div>
+            <div class="budget-track"><div class="budget-fill over" style="width:100%"></div></div>
+          </div>
+
+          <div class="budget-row">
+            <div class="budget-top">
+              <span class="b-name">Coordinación académica</span>
+              <span class="b-nums"><b>$24,000</b> de $24,000 · 100%</span>
+            </div>
+            <div class="budget-track"><div class="budget-fill" style="width:100%"></div></div>
+          </div>
+
+          <div class="budget-row">
+            <div class="budget-top">
+              <span class="b-name">Imprevistos</span>
+              <span class="b-nums"><b>$600</b> de $6,000 · 10%</span>
+            </div>
+            <div class="budget-track"><div class="budget-fill lowuse" style="width:10%"></div></div>
+          </div>
+
+          <div class="empty-hint" style="text-align:left; padding:14px 20px">
+            ⚠ El rubro <b>Materiales y difusión</b> está sobregirado $2,400. El sistema lo marcó al registrar
+            el último pago — el cierre presupuestal exigirá justificación o transferencia entre rubros.
+          </div>
+        </div>
+      </div>
+
+      <!-- Lateral -->
+      <div class="stack">
+        <div class="card">
+          <div class="card-head"><div class="card-title">Participantes del diplomado</div></div>
+          <div class="card-body flush">
+            <div class="doc-row">
+              <div class="doc-ico">👤</div>
+              <div>
+                <div class="doc-name"><a class="link" href="expediente.html">Dr. Jorge Pech Yam</a></div>
+                <div class="doc-sub">HONORARIOS · $42,000 · módulo de Regresión</div>
+              </div>
+              <div class="doc-right"><span class="chip warn"><span class="dot"></span> INCOMPLETO</span></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-ico">👤</div>
+              <div>
+                <div class="doc-name">Mtra. Alejandra Cetina</div>
+                <div class="doc-sub">HONORARIOS · $18,500 · módulo de Muestreo</div>
+              </div>
+              <div class="doc-right"><span class="chip crit"><span class="dot"></span> OBSERVADO</span></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-ico">👤</div>
+              <div>
+                <div class="doc-name">Mtro. Daniel Couoh Uc</div>
+                <div class="doc-sub">HONORARIOS · $38,000 · módulo de Series de Tiempo</div>
+              </div>
+              <div class="doc-right"><span class="chip info"><span class="dot"></span> EN CONTRATO</span></div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-ico">👤</div>
+              <div>
+                <div class="doc-name">Dra. Ileana Rosado</div>
+                <div class="doc-sub">HONORARIOS · $18,500 · módulo Introductorio</div>
+              </div>
+              <div class="doc-right"><span class="chip ok"><span class="dot"></span> PAGADO</span></div>
+            </div>
+            <div class="empty-hint">+ 2 participantes más · <a class="link" href="expediente.html">ver todos los expedientes</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal: nuevo proyecto -->
+<div class="modal-backdrop" id="modal-nuevo-proyecto">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Nuevo proyecto</div>
+      <button class="modal-x" onclick="closeModal('modal-nuevo-proyecto')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Nombre del proyecto</label><input type="text" placeholder="p. ej. Curso de Modelos Lineales"></div>
+      <div class="field"><label>Cliente / origen de recursos</label><input type="text" placeholder="empresa, dependencia o autofinanciado"></div>
+      <div class="grid-2">
+        <div class="field"><label>Inicio</label><input type="text" placeholder="dd/mm/aaaa"></div>
+        <div class="field"><label>Fin</label><input type="text" placeholder="dd/mm/aaaa"></div>
+      </div>
+      <div class="field"><label>Responsable académico</label><input type="text" placeholder="nombre del profesor responsable"></div>
+      <p class="small muted">Al crearlo podrás definir los <b>rubros de presupuesto</b> y registrar participantes — cada participante generará su expediente con checklist automático.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-nuevo-proyecto')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-nuevo-proyecto'); mockAction('Proyecto creado en estado BORRADOR')">Crear proyecto</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: cierre presupuestal -->
+<div class="modal-backdrop" id="modal-cierre">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Cierre presupuestal — Curso de Riesgo Financiero</div>
+      <button class="modal-x" onclick="closeModal('modal-cierre')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="version-list">
+        <div class="v-row"><span class="v-tag now">OK</span><span>3 contratos cerrados, expedientes completos</span></div>
+        <div class="v-row"><span class="v-tag now">OK</span><span>Todos los pagos en estado COMPLETO (facturas + XML + complementos)</span></div>
+        <div class="v-row"><span class="v-tag now">OK</span><span>Sin observaciones pendientes</span></div>
+        <div class="v-row"><span class="v-tag">…</span><span>Presupuesto: ejercido $86,000 de $86,000 — sin desviaciones</span></div>
+      </div>
+      <p class="small muted" style="margin-top:13px">
+        El cierre genera el <b>reporte final del proyecto</b> (presupuestado vs. ejercido por rubro, contratos y evidencias)
+        y deja todo en solo lectura. Es <b>irreversible</b> — solo un ADMIN puede reabrir.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-cierre')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-cierre'); mockAction('Proyecto cerrado — reporte de cierre generado', 'STATE_CHANGED · EN_CIERRE → CERRADO')">Confirmar cierre ✓</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

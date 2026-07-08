@@ -119,14 +119,34 @@ flowchart TD
 - Ecosistema documental, correo e identidad: **Microsoft 365 vía Graph + Entra ID**.
 - Motor de automatización: **n8n self-hosted**.
 - Modelo multi-tenant, RBAC, auditoría, cifrado de PII, mecanismos M1–M6.
+- **Backend: TypeScript + NestJS** — decisión cerrada (ver §7). El peso del sistema está en la
+  parte administrativa estructurada (RBAC, expedientes, máquinas de estado, auditoría, folios),
+  que es justo para lo que NestJS está hecho; RNF_07 y RNF_11 ya lo asumen (Prisma, BullMQ,
+  `@nestjs/schedule`, `class-transformer`, `EventEmitter2`, guards).
+- **Frontend: Next.js + React + TypeScript + Tailwind + shadcn/ui** — mismo lenguaje que el
+  backend, tipos compartidos.
+- **ORM: Prisma. Cola de eventos: BullMQ (sobre Redis).**
+- **Orquestación de IA dentro del backend** (módulo `ai` en NestJS): RAG sobre pgvector +
+  LlamaIndex.TS / LangChain.js + SDK del proveedor. El agente llama los mismos servicios
+  internos (RNF_11 M6), sin canal privilegiado.
+- **Python queda reservado como microservicio aislado de OCR / extracción documental**
+  (docTR / PaddleOCR / unstructured), consumido por el backend vía REST interno, y **solo se
+  activa cuando el OCR lo exija** — no en el MVP. Arquitectura híbrida-lista, TS-primero.
 
-**Por decidir (bloquea empezar a codear, no a diseñar):**
-- Lenguaje/framework de **backend** (TypeScript/NestJS vs Python/FastAPI vs híbrido).
-- Framework de **frontend** (probablemente Next.js, pero atado a la decisión anterior si se
-  comparte lenguaje).
-- **Proveedor LLM** (Azure OpenAI vs Ollama local) — depende de presupuesto e infraestructura.
-- Tecnología de **cola** de eventos (depende del lenguaje elegido).
+**Decidido (2026-07-05):**
+- **Proveedor LLM: API directa con dos niveles**, detrás de la interfaz del módulo `ai`:
+  un **modelo pequeño y rápido** como default para RAG, resúmenes y lectura, y un **modelo
+  mediano** solo para razonamiento pesado (redactar correos oficiales, proponer siguiente
+  paso). Presupuesto institucional ~800 MXN/mes (~40 USD): a volumen de una facultad esto
+  **sobra** con un modelo pequeño + prompt caching. **Azure OpenAI queda diferido** como opción
+  "si la institución exige que los datos vivan en su tenant" — no se usa en el MVP por la
+  fricción de aprovisionamiento. Intercambiable sin tocar el resto.
+- **Gestión de la llave de cifrado de PII:** variable de entorno en el MVP (el destino de
+  despliegue aún no está fijado; migrar a Azure Key Vault si se despliega en Azure).
+- **Almacenamiento de archivos: OneDrive/SharePoint vía Graph es la fuente de verdad** (RNF_04
+  + principio 2). Se **descarta** la idea suelta de Azure Blob / NAS de `ideas_doc §7.2`.
 
-> Cuando quieras cerrar el stack, puedo hacer un análisis comparativo TS vs Python vs híbrido
-> **específico para este dominio** (peso de la parte administrativa vs. la parte de IA/OCR
-> documental), que es exactamente el criterio que tú mismo planteaste en `ideas_doc §6`.
+**Único pendiente que NO bloquea construir, pero sí desplegar:**
+- **Dónde se hospeda** (backend NestJS + PostgreSQL + Redis/BullMQ + n8n). Define la gestión de
+  secretos definitiva y la política de purga de PII en SharePoint (§ RNF_07). Se decide al
+  llegar a despliegue, no antes.

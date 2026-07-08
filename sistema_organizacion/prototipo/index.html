@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de pendientes · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html" class="active"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend · Vista: <b>Secretaría</b> · <a href="director.html" style="color:var(--gold-light)">cambiar a vista del Director →</a></div>
+  <div class="topbar">
+    <div class="crumbs"><b>Panel de pendientes</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+    <a class="btn-ai" href="asistente.html"><span class="spark">✦</span> Preguntar al asistente</a>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Buenos días, Landy</div>
+        <div class="page-sub">Lunes 6 de julio de 2026 · El barrido de las 7:00 generó <b>4 alertas nuevas</b> · Todo lo demás está al corriente</div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="mockAction('Reporte semanal generado (PDF)')">⬇ Reporte semanal</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis">
+      <div class="kpi k-info">
+        <div class="kpi-label">Contratos activos</div>
+        <div class="kpi-num">14</div>
+        <div class="kpi-hint">en 3 proyectos vigentes</div>
+      </div>
+      <div class="kpi k-warn">
+        <div class="kpi-label">Expedientes incompletos</div>
+        <div class="kpi-num">5</div>
+        <div class="kpi-hint"><b class="up">2 con observaciones</b> sin atender</div>
+      </div>
+      <div class="kpi k-crit">
+        <div class="kpi-label">Alertas críticas</div>
+        <div class="kpi-num">3</div>
+        <div class="kpi-hint">sin movimiento &gt; 72 h</div>
+      </div>
+      <div class="kpi k-ok">
+        <div class="kpi-label">Pagos en proceso</div>
+        <div class="kpi-num">7</div>
+        <div class="kpi-hint"><b class="ok">4 cobrados</b> esta semana</div>
+      </div>
+    </div>
+
+    <div class="grid-31">
+
+      <!-- Columna principal: alertas -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">🔴 Requieren atención hoy <span class="count">(3)</span></div>
+            <div class="right"><span class="src n8n">N8N_FLOW</span><span class="small muted">barrido crítico · cada hora</span></div>
+          </div>
+          <div class="card-body flush">
+
+            <div class="alert-item">
+              <div class="alert-ico crit">⏱</div>
+              <div class="alert-body">
+                <div class="alert-title"><a href="contrato.html">CONTRATO-2026-014</a> · Mtro. Daniel Couoh Uc — sin respuesta del despacho externo</div>
+                <div class="alert-meta">
+                  <span class="chip crit"><span class="dot"></span> 96 h SIN MOVIMIENTO</span>
+                  <span>Diplomado en Estadística Aplicada</span>
+                  <span>último correo: 2 jul, 10:14</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="openModal('modal-recordatorio')">Enviar recordatorio</button>
+                <button class="btn sm" onclick="mockAction('Alerta descartada — se pidió justificación')">Descartar</button>
+              </div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico crit">✎</div>
+              <div class="alert-body">
+                <div class="alert-title"><a href="expediente.html">Expediente</a> · Mtra. Alejandra Cetina — observación crítica sin atender</div>
+                <div class="alert-meta">
+                  <span class="chip crit"><span class="dot"></span> OBSERVACIÓN CRÍTICA</span>
+                  <span>Constancia de situación fiscal ilegible</span>
+                  <span>observada hace 4 días</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="mockAction('Recordatorio preparado — revisa y confirma el envío')">Recordar</button>
+                <a class="btn sm" href="expediente.html">Ver</a>
+              </div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico crit">$</div>
+              <div class="alert-body">
+                <div class="alert-title"><a href="pagos.html">Cheque #4482</a> · Ing. Rodrigo Balam — emitido y sin cobrar</div>
+                <div class="alert-meta">
+                  <span class="chip crit"><span class="dot"></span> 11 DÍAS SIN COBRO</span>
+                  <span>Consultoría Actuarial — SSY</span>
+                  <span>emitido: 25 jun</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="mockAction('Aviso preparado para el participante — confirma el envío')">Avisar</button>
+                <button class="btn sm" onclick="mockAction('Alerta escalada al Director')">Escalar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">🟡 En seguimiento <span class="count">(5)</span></div>
+          </div>
+          <div class="card-body flush">
+
+            <div class="alert-item">
+              <div class="alert-ico warn">⏱</div>
+              <div class="alert-body">
+                <div class="alert-title"><a href="contrato.html">CONTRATO-2026-019</a> · Dra. Sofía Uc Ek — enviado, en revisión externa</div>
+                <div class="alert-meta">
+                  <span class="chip warn"><span class="dot"></span> 52 h SIN MOVIMIENTO</span>
+                  <span>Curso de Ciencia de Datos — CANACO</span>
+                </div>
+              </div>
+              <div class="alert-actions"><a class="btn sm" href="contrato.html">Ver</a></div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico warn">▣</div>
+              <div class="alert-body">
+                <div class="alert-title"><a href="expediente.html">Expediente</a> · Dr. Jorge Pech Yam — 2 documentos pendientes</div>
+                <div class="alert-meta">
+                  <span class="chip warn"><span class="dot"></span> INCOMPLETO</span>
+                  <span>falta: comprobante domicilio, carátula bancaria</span>
+                </div>
+              </div>
+              <div class="alert-actions"><a class="btn sm" href="expediente.html">Ver checklist</a></div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico warn">$</div>
+              <div class="alert-body">
+                <div class="alert-title"><a href="pagos.html">3 complementos de pago</a> pendientes de recibir</div>
+                <div class="alert-meta">
+                  <span class="chip warn"><span class="dot"></span> COMPLEMENTO PENDIENTE</span>
+                  <span>bloquea futuras contrataciones de esos participantes</span>
+                </div>
+              </div>
+              <div class="alert-actions"><a class="btn sm" href="pagos.html">Ver pagos</a></div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico info">📎</div>
+              <div class="alert-body">
+                <div class="alert-title">Correo de <b>J. Pech</b> con 2 adjuntos — asociado a su expediente, pendiente de clasificar</div>
+                <div class="alert-meta">
+                  <span class="chip info"><span class="dot"></span> POR CLASIFICAR</span>
+                  <span>respuesta al recordatorio del viernes · recibido hoy 8:55</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="openModal('modal-clasificar')">Clasificar…</button>
+              </div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico info">✉</div>
+              <div class="alert-body">
+                <div class="alert-title">1 correo recibido <b>sin folio reconocible</b> — requiere asociación manual</div>
+                <div class="alert-meta">
+                  <span class="chip info"><span class="dot"></span> POR ASOCIAR</span>
+                  <span>de: notificaciones@despachocontable.mx · asunto: "Re: contrato dipl."</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm" onclick="mockAction('Correo asociado manualmente a CONTRATO-2026-014')">Asociar…</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna lateral: actividad -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Actividad reciente</div></div>
+          <div class="card-body" style="padding-top:14px">
+            <div class="timeline">
+              <div class="tl-item ok">
+                <div class="tl-head"><span class="tl-state">Correo asociado por folio</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">Respuesta del despacho ligada a <b>CONTRATO-2026-021</b> → estado: EN_REVISIÓN</div>
+                <div class="tl-date">hoy · 8:41</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Documento aprobado</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Identificación oficial de S. Uc Ek — aprobada por ti</div>
+                <div class="tl-date">hoy · 8:22</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Alertas del día generadas</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">Barrido diario de las 7:00 — 4 alertas nuevas, 0 duplicadas</div>
+                <div class="tl-date">hoy · 7:00</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Borrador de correo propuesto</span><span class="src ai">AI_AGENT</span></div>
+                <div class="tl-desc">Recordatorio para J. Pech — <b>esperó tu confirmación</b>, enviado 16:40</div>
+                <div class="tl-date">viernes · 16:38</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Pago registrado</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Transferencia a A. Cetina · $18,500.00 — factura y XML verificados</div>
+                <div class="tl-date">viernes · 13:02</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Carpetas normalizadas</span><span class="src sys">SYSTEM</span></div>
+                <div class="tl-desc">Mantenimiento nocturno: 12 archivos renombrados en OneDrive</div>
+                <div class="tl-date">viernes · 2:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">✦ Sugerencia del asistente</div></div>
+          <div class="card-body">
+            <p style="font-size:12.8px; line-height:1.55; color:var(--ink-2)">
+              El expediente de <b>Jorge Pech</b> está a 2 documentos de quedar
+              <b>LISTO PARA CONTRATO</b>. Puedo redactarte el correo de recordatorio
+              con la lista exacta de faltantes.
+            </p>
+            <div style="margin-top:12px; display:flex; gap:8px">
+              <a class="btn sm gold" href="asistente.html">Redactar borrador</a>
+              <button class="btn sm" onclick="mockAction('Sugerencia ocultada')">Ahora no</button>
+            </div>
+            <p class="small muted" style="margin-top:10px">El asistente nunca envía nada sin tu confirmación.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: clasificar adjuntos recibidos por correo (recepción sin portal: el correo sigue siendo el canal) -->
+<div class="modal-backdrop" id="modal-clasificar">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Clasificar documentos recibidos</div>
+      <button class="modal-x" onclick="closeModal('modal-clasificar')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="pii-note" style="margin:0 0 14px">✉ <span>De: <b>jorge.pech@correo.uady.mx</b> · Asunto: "Re: Documentos pendientes — Diplomado en Estadística Aplicada" · El sistema lo asoció al expediente porque responde al recordatorio enviado desde aquí.</span></div>
+      <div class="field">
+        <label>📎 caratula_bbva_jpech.pdf (312 KB)</label>
+        <select>
+          <option>Carátula de estado de cuenta bancaria (PENDIENTE) — sugerido</option>
+          <option>Comprobante de domicilio (PENDIENTE)</option>
+          <option>Cédula profesional — nueva versión (OBSERVADO)</option>
+          <option>Documento libre / complementario</option>
+          <option>No corresponde — descartar adjunto</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>📎 recibo_cfe_junio.pdf (198 KB)</label>
+        <select>
+          <option>Comprobante de domicilio (PENDIENTE) — sugerido</option>
+          <option>Carátula de estado de cuenta bancaria (PENDIENTE)</option>
+          <option>Cédula profesional — nueva versión (OBSERVADO)</option>
+          <option>Documento libre / complementario</option>
+          <option>No corresponde — descartar adjunto</option>
+        </select>
+      </div>
+      <p class="small muted">
+        El sistema <b>sugiere</b> el requisito por el nombre y contenido del archivo, pero nada se clasifica solo:
+        tú confirmas. Al aceptar, los archivos se guardan en OneDrive/SharePoint, quedan como <b>RECIBIDO</b>
+        en el checklist y pasan a tu revisión.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-clasificar')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-clasificar'); mockAction('2 documentos clasificados — checklist de J. Pech: 2 requisitos ahora RECIBIDOS')">Confirmar clasificación ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: recordatorio preparado (patrón M5: el sistema deja todo listo, tú confirmas) -->
+<div class="modal-backdrop" id="modal-recordatorio">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Recordatorio listo para enviar</div>
+      <button class="modal-x" onclick="closeModal('modal-recordatorio')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field"><label>Para</label><input type="text" value="revision@despachocontable.mx" readonly></div>
+      <div class="field"><label>Asunto</label><input type="text" value="Seguimiento CONTRATO-2026-014 — Diplomado en Estadística Aplicada" readonly></div>
+      <div class="field">
+        <label>Mensaje (editable)</label>
+        <textarea>Estimado despacho:
+
+Le escribimos para dar seguimiento al contrato con folio CONTRATO-2026-014, enviado a revisión el 2 de julio. A la fecha no hemos recibido respuesta.
+
+Agradeceremos nos indique el estado de la revisión o las observaciones correspondientes.
+
+Saludos cordiales,
+Secretaría Administrativa · Facultad de Matemáticas, UADY</textarea>
+      </div>
+      <p class="small muted">El sistema preparó todo con los datos del folio. Tú solo revisas y confirmas — el envío quedará registrado en auditoría.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-recordatorio')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-recordatorio'); mockAction('Recordatorio enviado a despacho', 'source: WEB · vía Outlook/Graph')">Confirmar y enviar ✓</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

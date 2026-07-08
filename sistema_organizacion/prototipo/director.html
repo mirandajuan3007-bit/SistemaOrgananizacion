@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen ejecutivo · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Dirección</div>
+    <a href="director.html" class="active"><span class="ico">◫</span> Resumen ejecutivo <span class="badge-n">1</span></a>
+    <a href="#" onclick="mockAction('Historial de reportes semanales (simulado)'); return false"><span class="ico">▤</span> Reportes semanales</a>
+    <a href="#" onclick="mockAction('El Director consulta la auditoría en modo solo lectura'); return false"><span class="ico">≡</span> Auditoría</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar" style="background:var(--info-bg); color:var(--info)">EA</div>
+    <div>
+      <div class="user-name">Dr. Ermilo Ávila</div>
+      <div class="user-role">Director · FMAT</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Vista del rol <b>DIRECTOR</b> — solo lectura, sin operación · <a href="index.html" style="color:var(--gold-light)">← volver a vista de Secretaría</a></div>
+  <div class="topbar">
+    <div class="crumbs"><b>Resumen ejecutivo</b></div>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Resumen ejecutivo — FMAT</div>
+        <div class="page-sub">Semana del 29 jun al 5 jul de 2026 · Generado automáticamente cada lunes 7:30 · La operación diaria la lleva la Secretaría Administrativa</div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="mockAction('Reporte semanal descargado (PDF) — el mismo que llega a tu correo cada lunes')">⬇ Reporte semanal (PDF)</button>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi k-info">
+        <div class="kpi-label">Proyectos vigentes</div>
+        <div class="kpi-num">3</div>
+        <div class="kpi-hint">+ 1 en cierre · 14 contratos activos</div>
+      </div>
+      <div class="kpi k-warn">
+        <div class="kpi-label">Presupuesto ejercido</div>
+        <div class="kpi-num">56%</div>
+        <div class="kpi-hint">$276,790 de $493,000 · <b class="up">1 rubro sobregirado</b></div>
+      </div>
+      <div class="kpi k-crit">
+        <div class="kpi-label">Escalado a dirección</div>
+        <div class="kpi-num">1</div>
+        <div class="kpi-hint">requiere tu decisión</div>
+      </div>
+      <div class="kpi k-ok">
+        <div class="kpi-label">Pagos completados (semana)</div>
+        <div class="kpi-num">4</div>
+        <div class="kpi-hint">$56,700 · sin incidencias</div>
+      </div>
+    </div>
+
+    <div class="grid-31">
+
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">🔴 Escalado a dirección <span class="count">(1)</span></div>
+          </div>
+          <div class="card-body flush">
+            <div class="alert-item">
+              <div class="alert-ico crit">$</div>
+              <div class="alert-body">
+                <div class="alert-title">Cheque #4482 · Ing. Rodrigo Balam — 11 días emitido sin cobrar</div>
+                <div class="alert-meta">
+                  <span class="chip crit"><span class="dot"></span> ESCALADO POR SECRETARÍA</span>
+                  <span>Consultoría Actuarial — SSY · $22,000.00</span>
+                  <span>el participante no responde a 2 avisos</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="mockAction('Instrucción registrada: cancelar y reponer cheque — Secretaría la ejecutará', 'STATE_CHANGED · decisión del Director')">Instruir reposición</button>
+                <button class="btn sm" onclick="mockAction('Nota enviada a Secretaría: esperar hasta el 10 jul')">Esperar</button>
+              </div>
+            </div>
+            <div class="empty-hint">Aquí solo llega lo que la Secretaría escala explícitamente — el resto se resuelve en la operación.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Presupuesto por proyecto</div>
+            <div class="right"><span class="small muted">ejercido vs. presupuestado</span></div>
+          </div>
+          <div class="card-body flush">
+            <div class="budget-row">
+              <div class="budget-top">
+                <span class="b-name">Diplomado en Estadística Aplicada</span>
+                <span class="b-nums"><b>$143,500</b> de $230,000 · 62%</span>
+              </div>
+              <div class="budget-track"><div class="budget-fill" style="width:62%"></div></div>
+              <div class="small" style="color:var(--crit); margin-top:5px">⚠ rubro "Materiales y difusión" sobregirado $2,400 — Secretaría propondrá transferencia entre rubros</div>
+            </div>
+            <div class="budget-row">
+              <div class="budget-top">
+                <span class="b-name">Consultoría Actuarial — SSY</span>
+                <span class="b-nums"><b>$88,450</b> de $145,000 · 61%</span>
+              </div>
+              <div class="budget-track"><div class="budget-fill" style="width:61%"></div></div>
+            </div>
+            <div class="budget-row">
+              <div class="budget-top">
+                <span class="b-name">Curso de Ciencia de Datos — CANACO</span>
+                <span class="b-nums"><b>$44,840</b> de $118,000 · 38%</span>
+              </div>
+              <div class="budget-track"><div class="budget-fill lowuse" style="width:38%"></div></div>
+            </div>
+            <div class="budget-row">
+              <div class="budget-top">
+                <span class="b-name">Curso de Riesgo Financiero <span class="chip warn" style="margin-left:6px"><span class="dot"></span> EN CIERRE</span></span>
+                <span class="b-nums"><b>$86,000</b> de $86,000 · 100%</span>
+              </div>
+              <div class="budget-track"><div class="budget-fill" style="width:100%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Semáforo de la semana</div></div>
+          <div class="card-body">
+            <ul class="guard-list">
+              <li><span class="g-ico">✅</span><span><b>4 pagos completados</b> con factura, XML y complemento — sin incidencias.</span></li>
+              <li><span class="g-ico">✅</span><span><b>2 contratos firmados</b> y vigentes esta semana.</span></li>
+              <li><span class="g-ico">⚠️</span><span><b>5 expedientes incompletos</b>, 2 con observaciones sin atender — Secretaría ya envió recordatorios.</span></li>
+              <li><span class="g-ico">⚠️</span><span><b>3 complementos de pago</b> pendientes — bloquean nuevas contrataciones de esos participantes.</span></li>
+              <li><span class="g-ico">🔴</span><span><b>1 contrato sin respuesta</b> del despacho externo hace 4 días — 2.º recordatorio enviado hoy.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Sobre esta vista</div></div>
+          <div class="card-body">
+            <p style="font-size:12.8px; line-height:1.55; color:var(--ink-2)">
+              Esta vista es de <b>solo lectura</b>: el Director ve el estado agregado y decide sobre lo escalado,
+              pero no opera expedientes ni pagos. Cada decisión que registres aquí queda en
+              <b>auditoría</b> y la ejecuta la Secretaría.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

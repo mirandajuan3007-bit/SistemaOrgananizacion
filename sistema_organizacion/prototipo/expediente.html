@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expediente · Dr. Jorge Pech Yam · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html" class="active"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend. Sistema de Gestión Administrativa · Facultad de Matemáticas · UADY</div>
+  <div class="topbar">
+    <div class="crumbs">Expedientes <span class="sep">/</span> Diplomado en Estadística Aplicada <span class="sep">/</span> <b>Dr. Jorge Pech Yam</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+    <a class="btn-ai" href="asistente.html"><span class="spark">✦</span> Preguntar al asistente</a>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Dr. Jorge Pech Yam</div>
+        <div class="page-sub">
+          HONORARIOS · Instructor del módulo de Regresión · <a class="link" href="proyectos.html">Diplomado en Estadística Aplicada</a> · Periodo: 1 ago — 30 nov 2026 · Monto: $42,000.00
+        </div>
+      </div>
+      <div class="actions">
+        <span class="chip warn" style="align-self:center"><span class="dot"></span> EXPEDIENTE INCOMPLETO</span>
+        <button class="btn primary" onclick="openModal('modal-subir')">⬆ Subir documento</button>
+      </div>
+    </div>
+
+    <!-- Etapas del expediente -->
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-body" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px">
+        <div class="stepper">
+          <div class="step current"><span class="s-dot">1</span><span class="s-name">Documentación</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">2</span><span class="s-name">Contrato</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">3</span><span class="s-name">Pago</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">4</span><span class="s-name">Cierre</span></div>
+        </div>
+        <div class="small muted">A <b>2 documentos</b> de pasar a <b>LISTO PARA CONTRATO</b> — la solicitud de contrato se habilitará sola.</div>
+      </div>
+    </div>
+
+    <div class="grid-31">
+
+      <!-- Checklist documental -->
+      <div class="stack">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Checklist documental <span class="count">4 de 7 aprobados</span></div>
+            <div class="right"><span class="small muted">definido por la política documental de HONORARIOS</span></div>
+          </div>
+          <div class="card-body flush">
+
+            <div class="doc-row">
+              <div class="doc-ico">🪪</div>
+              <div>
+                <div class="doc-name">Identificación oficial (INE)</div>
+                <div class="doc-sub">OBLIGATORIO · v1 · recibido 12 jun · <span class="mono">sha256 ✓</span></div>
+              </div>
+              <div class="doc-right">
+                <span class="chip ok"><span class="dot"></span> APROBADO</span>
+                <button class="btn sm" onclick="mockAction('Abriendo documento desde OneDrive/SharePoint…')">Ver</button>
+              </div>
+            </div>
+
+            <div class="doc-row">
+              <div class="doc-ico">📄</div>
+              <div>
+                <div class="doc-name">Constancia de situación fiscal (SAT)</div>
+                <div class="doc-sub">OBLIGATORIO · v2 vigente · recibido 28 jun · <button class="pii-reveal" onclick="openModal('modal-versiones')">ver historial de versiones</button></div>
+              </div>
+              <div class="doc-right">
+                <span class="chip ok"><span class="dot"></span> APROBADO</span>
+                <button class="btn sm" onclick="mockAction('Abriendo documento desde OneDrive/SharePoint…')">Ver</button>
+              </div>
+            </div>
+
+            <div class="doc-row">
+              <div class="doc-ico">🏦</div>
+              <div>
+                <div class="doc-name">Carátula de estado de cuenta bancaria</div>
+                <div class="doc-sub">OBLIGATORIO · sin recibir · solicitado 20 jun y 30 jun</div>
+              </div>
+              <div class="doc-right">
+                <span class="chip neutral"><span class="dot"></span> PENDIENTE</span>
+                <button class="btn sm gold" onclick="mockAction('Recordatorio con enlace seguro de subida preparado — confirma el envío', 'propuesto por sistema')">Solicitar</button>
+              </div>
+            </div>
+
+            <div class="doc-row">
+              <div class="doc-ico">🏠</div>
+              <div>
+                <div class="doc-name">Comprobante de domicilio</div>
+                <div class="doc-sub">OBLIGATORIO · sin recibir</div>
+              </div>
+              <div class="doc-right">
+                <span class="chip neutral"><span class="dot"></span> PENDIENTE</span>
+                <button class="btn sm gold" onclick="mockAction('Recordatorio con enlace seguro de subida preparado — confirma el envío')">Solicitar</button>
+              </div>
+            </div>
+
+            <div class="doc-row">
+              <div class="doc-ico">🎓</div>
+              <div>
+                <div class="doc-name">Cédula profesional</div>
+                <div class="doc-sub">OBLIGATORIO · v1 · recibido 15 jun</div>
+              </div>
+              <div class="doc-right">
+                <span class="chip crit"><span class="dot"></span> OBSERVADO</span>
+                <button class="btn sm" onclick="mockAction('Abriendo documento…')">Ver</button>
+              </div>
+            </div>
+            <div class="obs-panel">
+              <div class="obs-tag">Observación · severidad menor</div>
+              <p>El PDF está escaneado de lado y la última página no se aprecia. Solicitar re-escaneo en orientación correcta.</p>
+              <div class="obs-by">Creada por Landy Canul · 16 jun · estado: PENDIENTE de atender por el participante</div>
+              <div style="margin-top:9px; display:flex; gap:8px">
+                <button class="btn sm gold" onclick="mockAction('Correo con la observación preparado — confirma el envío')">Notificar al participante</button>
+                <button class="btn sm" onclick="mockAction('Observación descartada — se registró tu justificación')">Descartar con justificación</button>
+              </div>
+            </div>
+
+            <div class="doc-row">
+              <div class="doc-ico">📋</div>
+              <div>
+                <div class="doc-name">CV corto</div>
+                <div class="doc-sub">OBLIGATORIO · v1 · recibido 12 jun</div>
+              </div>
+              <div class="doc-right">
+                <span class="chip ok"><span class="dot"></span> APROBADO</span>
+                <button class="btn sm" onclick="mockAction('Abriendo documento…')">Ver</button>
+              </div>
+            </div>
+
+            <div class="doc-row">
+              <div class="doc-ico">🧾</div>
+              <div>
+                <div class="doc-name">Opinión de cumplimiento (32-D)</div>
+                <div class="doc-sub">CONDICIONAL — aplica por monto &gt; $30,000 · v1 · recibido 27 jun</div>
+              </div>
+              <div class="doc-right">
+                <span class="chip ok"><span class="dot"></span> APROBADO</span>
+                <button class="btn sm" onclick="mockAction('Abriendo documento…')">Ver</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Lateral: datos y trazabilidad -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Datos del participante</div></div>
+          <div class="card-body">
+            <div class="pii-grid">
+              <div class="pii-field">
+                <label>Correo</label>
+                <div class="pii-value"><span>jorge.pech@correo.uady.mx</span></div>
+              </div>
+              <div class="pii-field">
+                <label>Teléfono</label>
+                <div class="pii-value"><span>999 · · · 2214</span></div>
+              </div>
+              <div class="pii-field">
+                <label>RFC 🔒</label>
+                <div class="pii-value"><span class="masked">PEYJ······HX2</span><button class="pii-reveal" onclick="revealPII(this,'PEYJ780412HX2','RFC')">Revelar</button></div>
+              </div>
+              <div class="pii-field">
+                <label>CURP 🔒</label>
+                <div class="pii-value"><span class="masked">PEYJ··········01</span><button class="pii-reveal" onclick="revealPII(this,'PEYJ780412HYNCHR01','CURP')">Revelar</button></div>
+              </div>
+              <div class="pii-field">
+                <label>CLABE 🔒</label>
+                <div class="pii-value"><span class="masked">···· ···· ···· 4417</span><button class="pii-reveal" onclick="revealPII(this,'0021 8006 5312 4417','CLABE')">Revelar</button></div>
+              </div>
+              <div class="pii-field">
+                <label>Banco</label>
+                <div class="pii-value"><span>Banamex</span></div>
+              </div>
+            </div>
+            <div class="pii-note">🔒 <span>Los datos sensibles se guardan <b>cifrados</b>. Cada vez que alguien los revela queda un registro de auditoría con quién, cuándo y desde dónde.</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Historial del expediente</div></div>
+          <div class="card-body" style="padding-top:14px">
+            <div class="timeline">
+              <div class="tl-item warn now">
+                <div class="tl-head"><span class="tl-state">Recordatorio de faltantes</span><span class="src ai">AI_AGENT</span></div>
+                <div class="tl-desc">Borrador propuesto por el asistente, <b>confirmado por ti</b> y enviado</div>
+                <div class="tl-date">3 jul · 16:40</div>
+              </div>
+              <div class="tl-item ok">
+                <div class="tl-head"><span class="tl-state">Situación fiscal v2 aprobada</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Reemplazó a la v1 observada — v1 quedó en historial</div>
+                <div class="tl-date">28 jun · 11:05</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Checklist generado</span><span class="src sys">SYSTEM</span></div>
+                <div class="tl-desc">Al registrar al participante: 7 requisitos según política de HONORARIOS</div>
+                <div class="tl-date">12 jun · 9:30</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Participante registrado</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Alta por Landy Canul — detectado en proyecto anterior (2025), datos fiscales reutilizados</div>
+                <div class="tl-date">12 jun · 9:28</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: subir documento -->
+<div class="modal-backdrop" id="modal-subir">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Subir documento</div>
+      <button class="modal-x" onclick="closeModal('modal-subir')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Requisito que satisface</label>
+        <select>
+          <option>Carátula de estado de cuenta bancaria (PENDIENTE)</option>
+          <option>Comprobante de domicilio (PENDIENTE)</option>
+          <option>Cédula profesional — nueva versión (OBSERVADO)</option>
+          <option>Documento libre / complementario</option>
+        </select>
+      </div>
+      <div class="dropzone" onclick="mockAction('Selector de archivo (simulado)')">
+        <span class="dz-ico">📂</span>
+        Arrastra el archivo aquí o <b>búscalo en tu equipo</b>
+        <div class="dz-note">PDF, JPG o PNG · máx. 20 MB</div>
+      </div>
+      <p class="small muted" style="margin-top:13px">
+        El archivo <b>se guarda en OneDrive/SharePoint de la Facultad</b> (no sale del ecosistema institucional).
+        El sistema registra la referencia, calcula su firma de integridad (hash) y lo liga al checklist.
+        Si reemplaza a una versión anterior, la anterior queda en historial — nada se pierde.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-subir')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-subir'); mockAction('Documento registrado — estado: RECIBIDO, pendiente de tu revisión')">Subir y registrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: historial de versiones -->
+<div class="modal-backdrop" id="modal-versiones">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Constancia de situación fiscal — versiones</div>
+      <button class="modal-x" onclick="closeModal('modal-versiones')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="version-list">
+        <div class="v-row">
+          <span class="v-tag now">v2 · VIGENTE</span>
+          <span>constancia_sat_pech_jun2026.pdf</span>
+          <span class="muted" style="margin-left:auto">28 jun · subida por el participante</span>
+        </div>
+        <div class="v-row">
+          <span class="v-tag">v1</span>
+          <span>csf_jorge.pdf — observada: vigencia vencida</span>
+          <span class="muted" style="margin-left:auto">12 jun · en historial</span>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:13px">Solo una versión vigente por requisito. Las anteriores no se borran: quedan ligadas a la observación que las originó.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-versiones')">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

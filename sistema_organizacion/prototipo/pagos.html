@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagos · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html" class="active"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend. Sistema de Gestión Administrativa · Facultad de Matemáticas · UADY</div>
+  <div class="topbar">
+    <div class="crumbs"><b>Pagos</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+    <a class="btn-ai" href="asistente.html"><span class="spark">✦</span> Preguntar al asistente</a>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Pagos</div>
+        <div class="page-sub">Un pago solo queda <b>COMPLETO</b> con factura, XML y complemento recibidos — hasta entonces, el sistema no lo suelta</div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="openModal('modal-registrar-pago')">+ Registrar pago</button>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi k-info">
+        <div class="kpi-label">En proceso</div>
+        <div class="kpi-num">7</div>
+        <div class="kpi-hint">$113,300 en trámite</div>
+      </div>
+      <div class="kpi k-warn">
+        <div class="kpi-label">Complementos pendientes</div>
+        <div class="kpi-num">3</div>
+        <div class="kpi-hint"><b class="up">bloquean nuevas contrataciones</b> de esos participantes</div>
+      </div>
+      <div class="kpi k-crit">
+        <div class="kpi-label">Cheques sin cobrar</div>
+        <div class="kpi-num">1</div>
+        <div class="kpi-hint"><b class="up">#4482 · 11 días</b> desde su emisión</div>
+      </div>
+      <div class="kpi k-ok">
+        <div class="kpi-label">Cobrados esta semana</div>
+        <div class="kpi-num">4</div>
+        <div class="kpi-hint">$56,700 · sin incidencias</div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button class="filter-chip on" data-filter="todos">Todos</button>
+      <button class="filter-chip" data-filter="proceso">En proceso</button>
+      <button class="filter-chip" data-filter="cobro">Pendiente de cobro</button>
+      <button class="filter-chip" data-filter="complemento">Complemento pendiente</button>
+      <button class="filter-chip" data-filter="completo">Completos</button>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Pagos del periodo <span class="count">(9)</span></div>
+        <div class="right"><span class="small muted">complementos verificados a diario por el barrido</span> <span class="src n8n">N8N_FLOW</span></div>
+      </div>
+      <div class="card-body flush table-wrap">
+        <table class="data" id="tabla-pagos">
+          <thead>
+            <tr>
+              <th>Pago</th>
+              <th>Participante · proyecto</th>
+              <th>Medio</th>
+              <th class="num">Monto</th>
+              <th>Comprobación</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-estado="cobro">
+              <td><div class="cell-main">PAGO-2026-071</div><div class="cell-sub">emitido 25 jun</div></td>
+              <td><div class="cell-main">Ing. Rodrigo Balam</div><div class="cell-sub">Consultoría Actuarial — SSY</div></td>
+              <td>Cheque <span class="mono">#4482</span></td>
+              <td class="num"><b>$22,000.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓</span></td>
+              <td><span class="chip crit"><span class="dot"></span> 11 DÍAS SIN COBRO</span></td>
+              <td><button class="btn sm gold" onclick="mockAction('Aviso preparado para el participante — confirma el envío')">Avisar</button></td>
+            </tr>
+            <tr data-estado="complemento">
+              <td><div class="cell-main">PAGO-2026-070</div><div class="cell-sub">pagado 3 jul</div></td>
+              <td><div class="cell-main">Mtra. Alejandra Cetina</div><div class="cell-sub">Diplomado en Estadística Aplicada</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$18,500.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓ · <b style="color:var(--warn)">complemento ✗</b></span></td>
+              <td><span class="chip warn"><span class="dot"></span> COMPLEMENTO PENDIENTE</span></td>
+              <td><button class="btn sm gold" onclick="mockAction('Solicitud de complemento preparada — confirma el envío')">Solicitar</button></td>
+            </tr>
+            <tr data-estado="complemento">
+              <td><div class="cell-main">PAGO-2026-069</div><div class="cell-sub">pagado 30 jun</div></td>
+              <td><div class="cell-main">Dr. Luis Ek Chan</div><div class="cell-sub">Curso de Ciencia de Datos — CANACO</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$15,000.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓ · <b style="color:var(--warn)">complemento ✗</b></span></td>
+              <td><span class="chip warn"><span class="dot"></span> COMPLEMENTO PENDIENTE</span></td>
+              <td><button class="btn sm gold" onclick="mockAction('Solicitud de complemento preparada — confirma el envío')">Solicitar</button></td>
+            </tr>
+            <tr data-estado="complemento">
+              <td><div class="cell-main">PAGO-2026-068</div><div class="cell-sub">pagado 27 jun</div></td>
+              <td><div class="cell-main">Lic. Marta Chi Pool</div><div class="cell-sub">Consultoría Actuarial — SSY</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$9,800.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓ · <b style="color:var(--warn)">complemento ✗</b></span></td>
+              <td><span class="chip warn"><span class="dot"></span> COMPLEMENTO PENDIENTE</span></td>
+              <td><button class="btn sm gold" onclick="mockAction('Solicitud de complemento preparada — confirma el envío')">Solicitar</button></td>
+            </tr>
+            <tr data-estado="proceso">
+              <td><div class="cell-main">PAGO-2026-072</div><div class="cell-sub">registrado 4 jul</div></td>
+              <td><div class="cell-main">Dr. Andrés Poot Cauich</div><div class="cell-sub">Curso de Ciencia de Datos — CANACO</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$24,000.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓ · <span class="mono">RFC y monto validados</span></span></td>
+              <td><span class="chip info"><span class="dot"></span> EN PROCESO</span></td>
+              <td><button class="btn sm" onclick="mockAction('En tesorería — sin acciones pendientes de tu lado')">Ver</button></td>
+            </tr>
+            <tr data-estado="proceso">
+              <td><div class="cell-main">PAGO-2026-066</div><div class="cell-sub">registrado 2 jul</div></td>
+              <td><div class="cell-main">M.C. Rubén Tun Dzul</div><div class="cell-sub">Consultoría Actuarial — SSY</div></td>
+              <td>Cheque <span class="mono">#4485</span></td>
+              <td class="num"><b>$12,500.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓</span></td>
+              <td><span class="chip info"><span class="dot"></span> CHEQUE EN ELABORACIÓN</span></td>
+              <td><button class="btn sm" onclick="mockAction('En tesorería — sin acciones pendientes de tu lado')">Ver</button></td>
+            </tr>
+            <tr data-estado="proceso">
+              <td><div class="cell-main">PAGO-2026-073</div><div class="cell-sub">programado 10 jul</div></td>
+              <td><div class="cell-main">M.C. Karla Noh Balam</div><div class="cell-sub">Consultoría Actuarial — SSY</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$11,500.00</b></td>
+              <td><span class="small muted">aún sin factura — se pedirá al programar</span></td>
+              <td><span class="chip neutral"><span class="dot"></span> PENDIENTE</span></td>
+              <td><button class="btn sm gold" onclick="openModal('modal-registrar-pago')">Iniciar</button></td>
+            </tr>
+            <tr data-estado="completo">
+              <td><div class="cell-main">PAGO-2026-065</div><div class="cell-sub">cerrado 3 jul</div></td>
+              <td><div class="cell-main">Dra. Ileana Rosado</div><div class="cell-sub">Diplomado en Estadística Aplicada</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$18,500.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓ · complemento ✓</span></td>
+              <td><span class="chip ok"><span class="dot"></span> COMPLETO</span></td>
+              <td><button class="btn sm" onclick="mockAction('Expediente de pago completo — solo lectura')">Ver</button></td>
+            </tr>
+            <tr data-estado="completo">
+              <td><div class="cell-main">PAGO-2026-064</div><div class="cell-sub">cerrado 1 jul</div></td>
+              <td><div class="cell-main">Lic. Pedro Mena Ku</div><div class="cell-sub">Curso de Ciencia de Datos — CANACO</div></td>
+              <td>Transferencia</td>
+              <td class="num"><b>$7,200.00</b></td>
+              <td><span class="small">factura ✓ · XML ✓ · complemento ✓</span></td>
+              <td><span class="chip ok"><span class="dot"></span> COMPLETO</span></td>
+              <td><button class="btn sm" onclick="mockAction('Expediente de pago completo — solo lectura')">Ver</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="empty-hint" id="pagos-vacio" style="display:none">Ningún pago coincide con el filtro seleccionado.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal: registrar pago -->
+<div class="modal-backdrop" id="modal-registrar-pago">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Registrar pago</div>
+      <button class="modal-x" onclick="closeModal('modal-registrar-pago')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Contrato (solo VIGENTES con pagos pendientes)</label>
+        <select>
+          <option>CONTRATO-2026-011 · M.C. Karla Noh Balam · Consultoría SSY · saldo $11,500</option>
+          <option>CONTRATO-2026-008 · Dr. Andrés Poot Cauich · Curso CANACO · saldo $24,000</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>Medio de pago</label>
+          <select><option>Transferencia</option><option>Cheque</option></select>
+        </div>
+        <div class="field"><label>Monto</label><input type="text" value="$11,500.00"></div>
+      </div>
+      <div class="dropzone" onclick="mockAction('Selector de archivo (simulado)')">
+        <span class="dz-ico">🧾</span>
+        Arrastra la <b>factura (PDF) y su XML</b>
+        <div class="dz-note">el sistema valida RFC, monto y datos fiscales del XML contra el contrato</div>
+      </div>
+      <p class="small muted" style="margin-top:13px">
+        Si el XML no cuadra con el contrato (RFC o monto), el pago <b>no avanza</b> y se marca la discrepancia.
+        Tras el pago, el sistema esperará el <b>complemento de pago</b> — y lo perseguirá solo.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-registrar-pago')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-registrar-pago'); mockAction('Pago registrado — estado: EN_PROCESO, factura y XML validados')">Registrar pago</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
