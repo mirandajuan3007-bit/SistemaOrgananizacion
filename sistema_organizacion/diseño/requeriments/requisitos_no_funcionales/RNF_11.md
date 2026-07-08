@@ -239,6 +239,12 @@ Esta tabla es la **fuente de verdad** sobre cómo se dispara cada automatizació
 | **registrar/avanzar pago** | RF_09 | **M5** | a decisión del usuario | NestJS | **sí, obligatorio** |
 | consultar estado / faltantes / resumen | RF_13 | M6 lectura | conversacional | NestJS (módulo ai) | no |
 | **redactar correo / proponer acción** | RF_13 | **M6 acción → M5** | conversacional | NestJS (módulo ai) | **sí, obligatorio** |
+| proponer clasificación de adjuntos entrantes | RF_15 | M4 (propuesta) | segundos | n8n → NestJS | — (solo propone) |
+| **confirmar clasificación de adjunto** | RF_15 | **M5** | a decisión del usuario | NestJS | **sí, obligatorio** |
+| validar y registrar subida por enlace tokenizado | RF_15 fase 2 | M2 | segundos | NestJS (BullMQ) | no (el token acota) |
+| pasar contrato APROBADO → VOBO_DIRECCION y notificar | RF_16 | M2 | segundos | NestJS → n8n | no (es transición+aviso) |
+| **otorgar / devolver visto bueno** | RF_16 | **M5** | a decisión del Director | NestJS | **sí, obligatorio** |
+| recordatorio de VoBo sin atender (>48h config.) | RF_16 | M1 crítico | cada 1h laboral | n8n | no (solo alerta) |
 
 ---
 

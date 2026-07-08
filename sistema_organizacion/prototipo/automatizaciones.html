@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatizaciones · SIGA FMAT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div>
+      <div class="brand-name">SIGA</div>
+      <div class="brand-sub">Gestión Administrativa</div>
+    </div>
+  </div>
+  <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
+  <nav class="nav">
+    <div class="nav-label">Panel</div>
+    <a href="index.html"><span class="ico">◫</span> Pendientes <span class="badge-n">3</span></a>
+    <a href="asistente.html"><span class="ico">✦</span> Asistente IA</a>
+    <div class="nav-label">Gestión</div>
+    <a href="proyectos.html"><span class="ico">▤</span> Proyectos</a>
+    <a href="expediente.html"><span class="ico">▣</span> Expedientes</a>
+    <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
+    <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
+    <div class="nav-label">Sistema</div>
+    <a href="automatizaciones.html" class="active"><span class="ico">⚡</span> Automatizaciones <span class="badge-gold">3</span></a>
+    <a href="#"><span class="ico">≡</span> Auditoría</a>
+    <a href="#"><span class="ico">⚙</span> Configuración</a>
+  </nav>
+  <div class="sidebar-foot">
+    <div class="avatar">LC</div>
+    <div>
+      <div class="user-name">Landy Canul</div>
+      <div class="user-role">Secretaría Administrativa</div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="proto-banner"><b>PROTOTIPO</b> · Mockup navegable con datos ficticios — sin backend · Vista: <b>Secretaría</b> · <a href="director.html" style="color:var(--gold-light)">cambiar a vista del Director →</a></div>
+  <div class="topbar">
+    <div class="crumbs">Sistema <span class="sep">/</span> <b>Automatizaciones</b></div>
+    <div class="search">🔍 Buscar expediente, folio, participante… <kbd>Ctrl K</kbd></div>
+    <a class="btn-ai" href="asistente.html"><span class="spark">✦</span> Preguntar al asistente</a>
+  </div>
+
+  <div class="content">
+
+    <div class="page-head">
+      <div>
+        <div class="page-title">Automatizaciones</div>
+        <div class="page-sub">Lo que el sistema hace solo — y en qué paso interviene una persona · <b>7 flujos activos</b> · Cada acción queda registrada en auditoría</div>
+      </div>
+      <div class="actions">
+        <button class="btn" onclick="mockAction('Reporte de automatización generado (PDF) — últimos 30 días')">⬇ Reporte 30 días</button>
+      </div>
+    </div>
+
+    <!-- KPIs: la automatización traducida a valor -->
+    <div class="kpis">
+      <div class="kpi k-info">
+        <div class="kpi-label">Acciones automáticas</div>
+        <div class="kpi-num">132</div>
+        <div class="kpi-hint">últimos 30 días · en 7 flujos</div>
+      </div>
+      <div class="kpi k-ok">
+        <div class="kpi-label">Tiempo recuperado</div>
+        <div class="kpi-num">~13 h</div>
+        <div class="kpi-hint">estimado vs. hacer lo mismo a mano</div>
+      </div>
+      <div class="kpi k-warn">
+        <div class="kpi-label">Esperan tu confirmación</div>
+        <div class="kpi-num">3</div>
+        <div class="kpi-hint">nada sensible se ejecuta sin una persona</div>
+      </div>
+      <div class="kpi k-crit">
+        <div class="kpi-label">Errores atrapados a tiempo</div>
+        <div class="kpi-num">4</div>
+        <div class="kpi-hint">2 facturas inconsistentes · 2 documentos ilegibles</div>
+      </div>
+    </div>
+
+    <div class="grid-31">
+
+      <!-- Columna principal: flujos -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">⚡ Flujos de automatización <span class="count">(7)</span></div>
+            <div class="right"><span class="src n8n">N8N_FLOW</span><span class="small muted">orquestados por n8n · auditados</span></div>
+          </div>
+          <div class="card-body flush">
+
+            <!-- 1. Clasificación de documentos -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">📎</div>
+                <div>
+                  <div class="auto-name">Clasificación de documentos recibidos <span class="src ai">AI_AGENT</span></div>
+                  <div class="auto-desc">Cada correo con adjuntos se liga solo al expediente correcto y el sistema sugiere qué requisito cubre cada archivo.</div>
+                </div>
+                <div class="auto-right">
+                  <a class="btn sm" href="index.html">3 por confirmar</a>
+                  <button class="switch" onclick="toggleAuto(this, 'Clasificación de documentos')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 Correo recibido</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Asocia por folio</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 OCR lee el adjunto</span><span class="f-arrow">→</span>
+                <span class="f-node ai">✦ Sugiere requisito</span><span class="f-arrow">→</span>
+                <span class="f-node human">👤 Tú confirmas</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Archiva en OneDrive</span>
+              </div>
+              <div class="auto-stats">
+                <span><b>47</b> documentos procesados</span>
+                <span><span class="stat-ok">91%</span> de sugerencias aceptadas sin corregir</span>
+                <span>ahorro estimado: <b>~10 min</b> por documento</span>
+              </div>
+            </div>
+
+            <!-- 2. Validación de facturas -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">🧾</div>
+                <div>
+                  <div class="auto-name">Validación de facturas (CFDI)</div>
+                  <div class="auto-desc">Al llegar una factura, el sistema valida el sello del SAT y coteja RFC, monto y rubro contra el contrato — antes de que alguien la revise a mano.</div>
+                </div>
+                <div class="auto-right">
+                  <button class="btn sm gold" onclick="openModal('modal-cfdi')">Ver ejemplo real</button>
+                  <button class="switch" onclick="toggleAuto(this, 'Validación de facturas')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 Factura llega (PDF + XML)</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Valida sello SAT</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Coteja RFC y monto vs. contrato</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Verifica suficiencia del rubro</span><span class="f-arrow">→</span>
+                <span class="f-node human">👤 Tú apruebas el pago</span>
+              </div>
+              <div class="auto-stats">
+                <span><b>12</b> facturas validadas</span>
+                <span><span class="stat-crit">2 detenidas</span> por inconsistencia (monto ≠ contrato)</span>
+                <span>de <b>~25 min</b> a <b>~2 min</b> por factura</span>
+              </div>
+            </div>
+
+            <!-- 3. Barrido de alertas -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">⏱</div>
+                <div>
+                  <div class="auto-name">Barrido de alertas y plazos</div>
+                  <div class="auto-desc">Todos los días a las 7:00 (y cada hora lo crítico) revisa contratos sin respuesta &gt;72 h, cheques sin cobrar y observaciones sin atender.</div>
+                </div>
+                <div class="auto-right">
+                  <button class="switch" onclick="toggleAuto(this, 'Barrido de alertas')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 7:00 / cada hora</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Revisa plazos y movimientos</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Genera alertas (sin duplicar)</span><span class="f-arrow">→</span>
+                <span class="f-node human">👤 Tú decides la acción</span>
+              </div>
+              <div class="auto-stats">
+                <span>hoy: <b>4</b> alertas nuevas · <b>0</b> duplicadas</span>
+                <span>reemplaza revisar el correo hilo por hilo cada mañana</span>
+              </div>
+            </div>
+
+            <!-- 4. Recordatorios -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">✉</div>
+                <div>
+                  <div class="auto-name">Recordatorios y correos de seguimiento <span class="src ai">AI_AGENT</span></div>
+                  <div class="auto-desc">Cuando detecta documentos faltantes o silencio en una revisión, redacta el correo con los datos del folio — tú solo revisas y confirmas el envío.</div>
+                </div>
+                <div class="auto-right">
+                  <button class="switch" onclick="toggleAuto(this, 'Recordatorios de seguimiento')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 Detecta faltante o silencio</span><span class="f-arrow">→</span>
+                <span class="f-node ai">✦ Redacta el borrador</span><span class="f-arrow">→</span>
+                <span class="f-node human">👤 Tú revisas y confirmas</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Envía y registra</span>
+              </div>
+              <div class="auto-stats">
+                <span><b>8</b> borradores preparados</span>
+                <span><span class="stat-ok">0</span> correos enviados sin confirmación humana</span>
+              </div>
+            </div>
+
+            <!-- 5. Vigilancia presupuestal -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">$</div>
+                <div>
+                  <div class="auto-name">Vigilancia presupuestal</div>
+                  <div class="auto-desc">Con cada pago registrado recalcula lo ejercido por rubro. Si un rubro se sobregira, lo detecta y prepara la propuesta de transferencia.</div>
+                </div>
+                <div class="auto-right">
+                  <a class="btn sm" href="director.html">Ver en Dirección</a>
+                  <button class="switch" onclick="toggleAuto(this, 'Vigilancia presupuestal')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 Pago registrado</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Recalcula ejercido por rubro</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Detecta sobregiro</span><span class="f-arrow">→</span>
+                <span class="f-node ai">✦ Propone transferencia</span><span class="f-arrow">→</span>
+                <span class="f-node human">👤 Director decide</span>
+              </div>
+              <div class="auto-stats">
+                <span><span class="stat-crit">1 sobregiro detectado</span>: "Materiales y difusión" +$2,400 (Diplomado)</span>
+                <span>propuesta de transferencia en preparación</span>
+              </div>
+            </div>
+
+            <!-- 6. Estados automáticos -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">▣</div>
+                <div>
+                  <div class="auto-name">Estados automáticos de expediente y contrato <span class="src sys">SYSTEM</span></div>
+                  <div class="auto-desc">Cuando llega el último requisito, el expediente pasa solo a LISTO PARA CONTRATO y te avisa. Solo cambia estados derivados de hechos verificables.</div>
+                </div>
+                <div class="auto-right">
+                  <button class="switch" onclick="toggleAuto(this, 'Estados automáticos')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 Último requisito RECIBIDO</span><span class="f-arrow">→</span>
+                <span class="f-node sys">⚙ Expediente → LISTO PARA CONTRATO</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Te avisa</span>
+              </div>
+              <div class="auto-stats">
+                <span><b>5</b> cambios de estado en 30 días</span>
+                <span>firmar, pagar y dar VoBo siguen siendo <b>siempre humanos</b></span>
+              </div>
+            </div>
+
+            <!-- 7. Mantenimiento nocturno -->
+            <div class="auto-item">
+              <div class="auto-head">
+                <div class="auto-ico">🌙</div>
+                <div>
+                  <div class="auto-name">Mantenimiento nocturno de archivos <span class="src sys">SYSTEM</span></div>
+                  <div class="auto-desc">Cada noche normaliza nombres y carpetas en OneDrive/SharePoint con la convención FOLIO_Apellido_Documento, para que todo sea encontrable.</div>
+                </div>
+                <div class="auto-right">
+                  <button class="switch" onclick="toggleAuto(this, 'Mantenimiento nocturno')" title="Activa — clic para pausar"></button>
+                </div>
+              </div>
+              <div class="flow">
+                <span class="f-node bot">🤖 2:00 a.m.</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Renombra y ordena carpetas</span><span class="f-arrow">→</span>
+                <span class="f-node bot">🤖 Reporta en auditoría</span>
+              </div>
+              <div class="auto-stats">
+                <span><b>12</b> archivos normalizados el viernes</span>
+                <span>0 archivos eliminados — solo renombra, nunca borra</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna lateral -->
+      <div class="stack">
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Cómo leer los flujos</div></div>
+          <div class="card-body">
+            <ul class="guard-list">
+              <li><span class="g-ico"><span class="f-node bot" style="padding:3px 9px">🤖</span></span><span><b>Paso automático</b> — n8n lo ejecuta solo, sin intervención.</span></li>
+              <li><span class="g-ico"><span class="f-node ai" style="padding:3px 9px">✦</span></span><span><b>Propuesta de IA</b> — el asistente prepara algo, pero no lo ejecuta.</span></li>
+              <li><span class="g-ico"><span class="f-node human" style="padding:3px 9px">👤</span></span><span><b>Confirmación humana</b> — obligatoria en todo paso sensible: enviar, pagar, firmar.</span></li>
+            </ul>
+            <p class="small muted" style="margin-top:12px; line-height:1.5">
+              El interruptor pausa cualquier flujo al instante. Cada acción automática queda en
+              <b>auditoría</b> con su origen (N8N_FLOW / AI_AGENT / SYSTEM), quién la confirmó y cuándo.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">El mismo trámite, antes y con SIGA</div></div>
+          <div class="card-body" style="padding-top:10px">
+
+            <div class="vs-row">
+              <div class="vs-task">🧾 Llega una factura</div>
+              <div class="vs-cols">
+                <div class="vs-before"><span class="vs-t">Hoy</span>Descargar, abrir el XML, cotejar RFC y monto contra el contrato a mano. <b>~25 min</b></div>
+                <div class="vs-after"><span class="vs-t">Con SIGA</span>Llega ya validada; solo confirmas el pago. <b>~2 min</b></div>
+              </div>
+            </div>
+
+            <div class="vs-row">
+              <div class="vs-task">📎 Documento por correo</div>
+              <div class="vs-cols">
+                <div class="vs-before"><span class="vs-t">Hoy</span>Descargar, identificar de quién es, renombrar, archivar en la carpeta correcta. <b>~10 min</b></div>
+                <div class="vs-after"><span class="vs-t">Con SIGA</span>Ya está ligado al expediente con el requisito sugerido; <b>1 clic</b> para confirmar.</div>
+              </div>
+            </div>
+
+            <div class="vs-row">
+              <div class="vs-task">⏱ Detectar un atraso</div>
+              <div class="vs-cols">
+                <div class="vs-before"><span class="vs-t">Hoy</span>Revisar el correo hilo por hilo y confiar en la memoria.</div>
+                <div class="vs-after"><span class="vs-t">Con SIGA</span>Alerta automática a las 7:00 con el folio y los días sin movimiento.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div class="card-title">Actividad automática reciente</div></div>
+          <div class="card-body" style="padding-top:14px">
+            <div class="timeline">
+              <div class="tl-item ok">
+                <div class="tl-head"><span class="tl-state">Correo asociado por folio</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">Respuesta del Jurídico ligada a <b>CONTRATO-2026-021</b></div>
+                <div class="tl-date">hoy · 8:41</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Barrido diario</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">4 alertas nuevas, 0 duplicadas</div>
+                <div class="tl-date">hoy · 7:00</div>
+              </div>
+              <div class="tl-item warn">
+                <div class="tl-head"><span class="tl-state">Factura detenida</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-desc">Monto no coincide con el contrato — no avanzó a pago</div>
+                <div class="tl-date">viernes · 11:20</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Borrador propuesto</span><span class="src ai">AI_AGENT</span></div>
+                <div class="tl-desc">Recordatorio para J. Pech — esperó confirmación</div>
+                <div class="tl-date">viernes · 16:38</div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-head"><span class="tl-state">Carpetas normalizadas</span><span class="src sys">SYSTEM</span></div>
+                <div class="tl-desc">12 archivos renombrados en OneDrive</div>
+                <div class="tl-date">viernes · 2:00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: ejemplo real de validación de factura -->
+<div class="modal-backdrop" id="modal-cfdi">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Validación automática — Factura A-1094</div>
+      <button class="modal-x" onclick="closeModal('modal-cfdi')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="pii-note" style="margin:0 0 14px">🧾 <span>Emisor: <b>Mtra. Alejandra Cetina</b> · recibida por correo el 3 jul, 9:12 · ligada automáticamente a su contrato del Diplomado en Estadística Aplicada. Validación completada en <b>4 segundos</b>.</span></div>
+
+      <div class="check-row"><span class="c-ico">✅</span><span><b>XML con sello digital válido</b> — verificado contra el SAT, no está cancelada.</span></div>
+      <div class="check-row"><span class="c-ico">✅</span><span><b>RFC del emisor coincide</b> con la constancia fiscal del expediente.</span></div>
+      <div class="check-row"><span class="c-ico">✅</span><span><b>Monto $18,500.00 coincide</b> con lo pactado en el contrato (pago 2 de 3).</span></div>
+      <div class="check-row"><span class="c-ico">✅</span><span><b>Rubro "Honorarios instructores"</b> con suficiencia presupuestal para este pago.</span></div>
+      <div class="check-row"><span class="c-ico">⚠️</span><span><b>Complemento de pago pendiente</b> — se solicitará automáticamente al confirmarse el cobro.</span></div>
+
+      <p class="small muted" style="margin-top:14px; line-height:1.55">
+        La factura quedó <b>lista para programar el pago</b>. El sistema validó todo, pero el pago
+        <b>no se ejecuta solo</b>: lo confirma una persona, y esa confirmación queda en auditoría.
+        Si algo no cuadra (como las 2 facturas detenidas este mes), el flujo se detiene <b>antes</b> de que el error cueste dinero.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-cfdi')">Cerrar</button>
+      <button class="btn primary" onclick="closeModal('modal-cfdi'); mockAction('Pago programado — factura A-1094 de A. Cetina', 'source: WEB · validación previa N8N_FLOW')">Programar pago ✓</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

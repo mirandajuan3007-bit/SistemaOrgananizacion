@@ -132,3 +132,16 @@ function chatDemo(input) {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && e.target.matches(".chat-input input")) chatDemo(e.target);
 });
+
+/* ---------- Automatizaciones: pausar / reactivar un flujo ---------- */
+function toggleAuto(btn, name) {
+  const off = btn.classList.toggle("off");
+  const item = btn.closest(".auto-item");
+  if (item) item.classList.toggle("paused", off);
+  btn.title = off ? "Pausada — clic para reactivar" : "Activa — clic para pausar";
+  toast(
+    off ? "Flujo pausado: " + name + " — deja de ejecutarse de inmediato"
+        : "Flujo reactivado: " + name,
+    (off ? "AUTOMATION_PAUSED" : "AUTOMATION_RESUMED") + " · Landy Canul"
+  );
+}

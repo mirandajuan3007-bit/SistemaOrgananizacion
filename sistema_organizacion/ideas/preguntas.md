@@ -34,4 +34,31 @@ para mantenimiento o demasiado lento para vencimientos; (b) puro event-driven si
 puede ver ausencias. Como los umbrales ya son configurables, una unidad de alto volumen puede
 apretar el crítico a 30 min sin tocar código.
 
-2) ¿
+2) ¿Los participantes externos tienen correo institucional UADY?
+
+**RESUELTO (2026-07-08, respuesta del cliente).** No necesariamente: usan **Gmail/Hotmail**.
+Consecuencia de diseño: cualquier mecanismo de acceso para participantes basado en Entra ID
+queda descartado. La recepción de documentos es **híbrida por fases** (RF_15): fase 1 correo
+asistido con clasificación confirmada por la Secretaría; fase 2 **enlace tokenizado** por
+expediente (sin contraseña); portal con login diferido.
+
+3) ¿Quién es el "despacho externo" que revisa contratos?
+
+**RESUELTO (2026-07-08, respuesta del cliente).** Es el **jurídico de la UADY**, no un
+despacho contratado, y **sí se le puede pedir que use el sistema** "para hacerle la vida más
+fácil". Consecuencia: existe el rol `REVISOR_JURIDICO` (cuenta institucional) que registra el
+resultado de la revisión y sus observaciones dentro del sistema; el correo con folio (RF_08)
+queda como canal alterno si responde fuera. El prototipo se actualizó: "despacho externo" →
+"Jurídico UADY".
+
+4) ¿El Director necesita aprobar algo formalmente o solo enterarse?
+
+**RESUELTO (2026-07-08, respuesta del cliente).** **Sí aprueba**: contratos y cierres, "más
+que nada por el dinero que se maneja". Restricción clave: el Director no puede estar en tantas
+cosas a la vez — la información debe llegarle **resumida y rápida de visualizar** para decidir
+en segundos. Consecuencia: RF_16 (visto bueno del Director), estado `VOBO_DIRECCION` en la
+máquina del contrato, VoBo obligatorio para `EN_CIERRE → CERRADO`, y bandeja de
+tarjetas-resumen con dos acciones (aprobar / devolver con comentario) en la vista del
+Director. Transferencia entre rubros: **sigue pendiente** por decisión del cliente.
+
+5) ¿

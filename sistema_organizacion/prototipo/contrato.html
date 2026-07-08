@@ -29,6 +29,7 @@
     <a href="contrato.html" class="active"><span class="ico">✎</span> Contratos</a>
     <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
     <div class="nav-label">Sistema</div>
+    <a href="automatizaciones.html"><span class="ico">⚡</span> Automatizaciones <span class="badge-gold">3</span></a>
     <a href="#"><span class="ico">≡</span> Auditoría</a>
     <a href="#"><span class="ico">⚙</span> Configuración</a>
   </nav>
@@ -76,11 +77,13 @@
           <div class="step-line"></div>
           <div class="step"><span class="s-dot">4</span><span class="s-name">Aprobado</span></div>
           <div class="step-line"></div>
-          <div class="step"><span class="s-dot">5</span><span class="s-name">Firmado</span></div>
+          <div class="step"><span class="s-dot">5</span><span class="s-name">VoBo Director</span></div>
           <div class="step-line"></div>
-          <div class="step"><span class="s-dot">6</span><span class="s-name">Vigente</span></div>
+          <div class="step"><span class="s-dot">6</span><span class="s-name">Firmado</span></div>
+          <div class="step-line"></div>
+          <div class="step"><span class="s-dot">7</span><span class="s-name">Vigente</span></div>
         </div>
-        <div class="small muted">En revisión del <b>despacho externo</b> desde el 2 jul. Si hay observaciones, el estado pasará a <b>OBSERVADO</b> y volverá aquí al atenderlas.</div>
+        <div class="small muted">En revisión del <b>Jurídico UADY</b> desde el 2 jul. Si hay observaciones pasará a <b>OBSERVADO</b>; al aprobarse pasa a <b>VoBo del Director</b> antes de la firma.</div>
       </div>
     </div>
 
@@ -97,23 +100,23 @@
           <div class="card-body" style="padding-top:14px">
             <div class="timeline">
               <div class="tl-item crit now">
-                <div class="tl-head"><span class="tl-state">Sin respuesta del despacho</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-head"><span class="tl-state">Sin respuesta del Jurídico</span><span class="src n8n">N8N_FLOW</span></div>
                 <div class="tl-desc">El barrido de hoy 7:00 detectó <b>96 h sin movimiento</b> desde el último envío — alerta generada en el panel</div>
                 <div class="tl-date">hoy · 7:00</div>
               </div>
               <div class="tl-item">
-                <div class="tl-head"><span class="tl-state">ENVIADO → despacho externo</span><span class="src">WEB</span></div>
-                <div class="tl-desc">Versión v2 del contrato enviada a <b>revision@despachocontable.mx</b> con folio en el asunto — enviada por ti desde el sistema</div>
+                <div class="tl-head"><span class="tl-state">ENVIADO → Jurídico UADY</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Versión v2 del contrato enviada a <b>juridico@correo.uady.mx</b> con folio en el asunto — enviada por ti desde el sistema</div>
                 <div class="tl-date">2 jul · 10:14</div>
               </div>
               <div class="tl-item ok">
-                <div class="tl-head"><span class="tl-state">RECIBIDO ← despacho externo</span><span class="src n8n">N8N_FLOW</span></div>
+                <div class="tl-head"><span class="tl-state">RECIBIDO ← Jurídico UADY</span><span class="src n8n">N8N_FLOW</span></div>
                 <div class="tl-desc">Respuesta con 1 observación, asociada automáticamente por el folio del asunto → estado pasó a OBSERVADO</div>
                 <div class="tl-date">26 jun · 13:40</div>
               </div>
               <div class="tl-item">
-                <div class="tl-head"><span class="tl-state">ENVIADO → despacho externo</span><span class="src">WEB</span></div>
-                <div class="tl-desc">Versión v1 del contrato enviada a revisión externa</div>
+                <div class="tl-head"><span class="tl-state">ENVIADO → Jurídico UADY</span><span class="src">WEB</span></div>
+                <div class="tl-desc">Versión v1 del contrato enviada a revisión jurídica</div>
                 <div class="tl-date">24 jun · 9:05</div>
               </div>
             </div>
@@ -129,7 +132,7 @@
               <div class="doc-ico">✎</div>
               <div>
                 <div class="doc-name">Cláusula tercera: periodo no coincidía con el oficio de autorización</div>
-                <div class="doc-sub">severidad CRÍTICA · creada 26 jun por respuesta del despacho · atendida 1 jul con la versión v2</div>
+                <div class="doc-sub">severidad CRÍTICA · creada 26 jun por respuesta del Jurídico · atendida 1 jul con la versión v2</div>
               </div>
               <div class="doc-right">
                 <span class="chip ok"><span class="dot"></span> ATENDIDA</span>
@@ -153,9 +156,9 @@
               <div class="pii-field"><label>Monto</label><div class="pii-value"><span>$38,000.00</span></div></div>
               <div class="pii-field"><label>Rubro</label><div class="pii-value"><span>Honorarios instr.</span></div></div>
               <div class="pii-field"><label>Versión vigente</label><div class="pii-value"><span>v2 · <span class="mono">sha256 ✓</span></span></div></div>
-              <div class="pii-field"><label>Revisor externo</label><div class="pii-value"><span>Despacho contable</span></div></div>
+              <div class="pii-field"><label>Revisor</label><div class="pii-value"><span>Jurídico UADY</span></div></div>
             </div>
-            <div class="pii-note">▣ <span>El expediente del participante quedó <b>COMPLETO</b> el 20 jun — por eso se habilitó la generación de este contrato.</span></div>
+            <div class="pii-note">▣ <span>El expediente del participante quedó <b>COMPLETO</b> el 20 jun — por eso se habilitó la generación de este contrato. Al aprobar el Jurídico, pasará automáticamente al <b>VoBo del Director</b>.</span></div>
           </div>
         </div>
 
@@ -173,8 +176,8 @@
           <div class="card-head"><div class="card-title">✦ Sugerencia del asistente</div></div>
           <div class="card-body">
             <p style="font-size:12.8px; line-height:1.55; color:var(--ink-2)">
-              Este es el <b>2.º recordatorio</b> que haría falta enviar al despacho por este folio.
-              El promedio de respuesta del despacho este año es de <b>3.1 días</b> — este ya lleva 4.
+              Este es el <b>2.º recordatorio</b> que haría falta enviar al Jurídico por este folio.
+              El promedio de respuesta del Jurídico este año es de <b>3.1 días</b> — este ya lleva 4.
               Puedo preparar el recordatorio citando el historial completo.
             </p>
             <div style="margin-top:12px; display:flex; gap:8px">
@@ -197,11 +200,11 @@
       <button class="modal-x" onclick="closeModal('modal-recordatorio')">✕</button>
     </div>
     <div class="modal-body">
-      <div class="field"><label>Para</label><input type="text" value="revision@despachocontable.mx" readonly></div>
+      <div class="field"><label>Para</label><input type="text" value="juridico@correo.uady.mx" readonly></div>
       <div class="field"><label>Asunto</label><input type="text" value="Seguimiento CONTRATO-2026-014 — Diplomado en Estadística Aplicada" readonly></div>
       <div class="field">
         <label>Mensaje (editable)</label>
-        <textarea>Estimado despacho:
+        <textarea>Estimado Departamento Jurídico:
 
 Le escribimos para dar seguimiento al contrato con folio CONTRATO-2026-014, enviado a revisión el 2 de julio (versión v2, que atiende la observación del 26 de junio). A la fecha no hemos recibido respuesta.
 
@@ -210,11 +213,11 @@ Agradeceremos nos indique el estado de la revisión o las observaciones correspo
 Saludos cordiales,
 Secretaría Administrativa · Facultad de Matemáticas, UADY</textarea>
       </div>
-      <p class="small muted">El folio va en el asunto: la respuesta del despacho se asociará sola a este contrato.</p>
+      <p class="small muted">El folio va en el asunto: la respuesta del Jurídico se asociará sola a este contrato. Cuando el Jurídico opere dentro del sistema (rol REVISOR_JURIDICO), registrará su revisión directo aquí y este correo será solo un aviso.</p>
     </div>
     <div class="modal-foot">
       <button class="btn" onclick="closeModal('modal-recordatorio')">Cancelar</button>
-      <button class="btn primary" onclick="closeModal('modal-recordatorio'); mockAction('Recordatorio enviado al despacho', 'source: WEB · vía Outlook/Graph')">Confirmar y enviar ✓</button>
+      <button class="btn primary" onclick="closeModal('modal-recordatorio'); mockAction('Recordatorio enviado al Jurídico', 'source: WEB · vía Outlook/Graph')">Confirmar y enviar ✓</button>
     </div>
   </div>
 </div>
@@ -240,7 +243,7 @@ Secretaría Administrativa · Facultad de Matemáticas, UADY</textarea>
         Adjunta el correo o documento de respuesta como evidencia
         <div class="dz-note">PDF o MSG · quedará ligado al folio</div>
       </div>
-      <p class="small muted" style="margin-top:13px">Para cuando el despacho responde por teléfono o a un correo personal: la trazabilidad del folio no se rompe.</p>
+      <p class="small muted" style="margin-top:13px">Para cuando el Jurídico responde por teléfono o a un correo personal: la trazabilidad del folio no se rompe.</p>
     </div>
     <div class="modal-foot">
       <button class="btn" onclick="closeModal('modal-respuesta')">Cancelar</button>
@@ -265,7 +268,7 @@ Secretaría Administrativa · Facultad de Matemáticas, UADY</textarea>
         </div>
         <div class="v-row">
           <span class="v-tag">v1</span>
-          <span>contrato_2026-014_v1.pdf — observada por el despacho</span>
+          <span>contrato_2026-014_v1.pdf — observada por el Jurídico</span>
           <span class="muted" style="margin-left:auto">24 jun · en historial</span>
         </div>
       </div>

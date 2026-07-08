@@ -26,9 +26,14 @@ La autorización se implementa mediante roles definidos en el sistema. Cada endp
 |---|---|
 | `ADMIN` | Administrador técnico del sistema. Acceso completo a configuración, usuarios y logs de auditoría. No tiene acceso a datos operativos por defecto. |
 | `SECRETARIA` | Usuario operativo principal. Acceso completo de lectura y escritura sobre todos los expedientes, contratos, documentos y participantes. |
-| `DIRECTOR` | Vista ejecutiva. Acceso de lectura a todos los proyectos, estados y dashboards. No puede modificar expedientes ni ver datos bancarios. |
+| `DIRECTOR` | Vista ejecutiva. Acceso de lectura a todos los proyectos, estados y dashboards, más **decisión sobre vistos buenos y escalados** (RF_16): otorgar/devolver VoBo de contratos y cierres. No puede modificar expedientes ni ver datos bancarios. |
 | `INVESTIGADOR` | Participante en proyectos. Solo puede ver su propio expediente: documentos requeridos, estado de su contrato, pendientes. No puede ver expedientes de otros participantes. |
-| `REVISOR_EXTERNO` | Uso futuro. Para instituciones externas que requieran acceso de lectura limitado a un proyecto específico. |
+| `REVISOR_JURIDICO` | Jurídico de la UADY que revisa contratos (confirmado 2026-07-08: no es despacho contratado; usará el sistema con cuenta institucional). Lectura de los contratos asignados a revisión + registrar resultado y observaciones (RF_06, RF_07). No ve datos bancarios ni pagos. |
+
+> Los **participantes externos** (RF_15) no tienen rol ni cuenta: usan correo personal
+> (Gmail/Hotmail) y, en fase 2, enlaces tokenizados acotados a subir los faltantes de su
+> propio expediente. El acceso anónimo por token queda fuera de esta matriz RBAC y se controla
+> por la validez del enlace.
 
 ---
 

@@ -13,11 +13,13 @@
 stateDiagram-v2
     [*] --> BORRADOR : crear registro (expediente listo)
     BORRADOR --> ENVIADO : enviar solicitud (M5, confirmación humana)
-    ENVIADO --> EN_REVISION : acuse del revisor
+    ENVIADO --> EN_REVISION : acuse del revisor jurídico
     EN_REVISION --> OBSERVADO : registrar observación(es)
     EN_REVISION --> APROBADO : sin observaciones
     OBSERVADO --> ENVIADO : subir corrección / nueva versión
-    APROBADO --> FIRMADO : firma de partes
+    APROBADO --> VOBO_DIRECCION : pasa a visto bueno (automático M2, RF_16)
+    VOBO_DIRECCION --> FIRMADO : VoBo otorgado → firma de partes
+    VOBO_DIRECCION --> OBSERVADO : Director devuelve con comentario
     FIRMADO --> VIGENTE : resguardo del contrato final
     VIGENTE --> CERRADO : ciclo económico completo
     CERRADO --> [*]
@@ -27,13 +29,27 @@ stateDiagram-v2
         haya observaciones CRITICAS
         sin VALIDAR (RF_07)
     end note
+
+    note right of VOBO_DIRECCION
+        Solo el rol DIRECTOR decide.
+        Devolver exige comentario,
+        que se registra como
+        observación (RF_16)
+    end note
 ```
 
 **Reglas duras:**
 - No se puede saltar de `BORRADOR` a `FIRMADO` (RNF_04): debe pasar por revisión.
 - Pasar a `OBSERVADO` **exige** registrar al menos una observación (RF_06).
 - El ciclo `OBSERVADO → ENVIADO → EN_REVISION` puede repetirse N veces sin perder historial.
+- **Ningún contrato llega a `FIRMADO` sin pasar por `VOBO_DIRECCION`** (RF_16): la entrada a
+  VoBo es automática al aprobar la revisión; la salida solo la decide el Director (M5).
 - `VIGENTE → CERRADO` solo si el pago llegó a estado terminal (`COMPLETO`).
+
+> **Nota sobre el revisor (decisión 2026-07-08):** la revisión de `EN_REVISION` la hace el
+> **jurídico de la UADY** (no un despacho contratado). Se le pedirá usar el sistema con rol
+> `REVISOR_JURIDICO` (registra resultado y observaciones directamente); el correo con folio
+> (RF_08) queda como canal alterno si responde fuera del sistema.
 
 ---
 
@@ -94,7 +110,7 @@ stateDiagram-v2
     [*] --> BORRADOR : alta
     BORRADOR --> ACTIVO : datos mínimos completos
     ACTIVO --> EN_CIERRE : operación concluida, iniciando cierre
-    EN_CIERRE --> CERRADO : sin pendientes críticos
+    EN_CIERRE --> CERRADO : VoBo del Director sobre el cierre presupuestal (RF_16)
     ACTIVO --> SUSPENDIDO : pausa administrativa
     SUSPENDIDO --> ACTIVO : reanuda
     CERRADO --> [*]
@@ -102,7 +118,10 @@ stateDiagram-v2
     note right of EN_CIERRE
         No cierra si hay contratos
         abiertos o pagos críticos
-        pendientes (RF_02)
+        pendientes (RF_02).
+        Cerrar exige además el
+        visto bueno del Director
+        (RF_16)
     end note
 ```
 

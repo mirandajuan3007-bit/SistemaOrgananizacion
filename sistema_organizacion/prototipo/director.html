@@ -21,7 +21,7 @@
   <div class="unidad-pill"><span>Unidad: <b>FMAT</b></span><span class="chev">▾</span></div>
   <nav class="nav">
     <div class="nav-label">Dirección</div>
-    <a href="director.html" class="active"><span class="ico">◫</span> Resumen ejecutivo <span class="badge-n">1</span></a>
+    <a href="director.html" class="active"><span class="ico">◫</span> Resumen ejecutivo <span class="badge-n">3</span></a>
     <a href="#" onclick="mockAction('Historial de reportes semanales (simulado)'); return false"><span class="ico">▤</span> Reportes semanales</a>
     <a href="#" onclick="mockAction('El Director consulta la auditoría en modo solo lectura'); return false"><span class="ico">≡</span> Auditoría</a>
   </nav>
@@ -35,7 +35,7 @@
 </aside>
 
 <div class="main">
-  <div class="proto-banner"><b>PROTOTIPO</b> · Vista del rol <b>DIRECTOR</b> — solo lectura, sin operación · <a href="index.html" style="color:var(--gold-light)">← volver a vista de Secretaría</a></div>
+  <div class="proto-banner"><b>PROTOTIPO</b> · Vista del rol <b>DIRECTOR</b> — lectura + decisión: vistos buenos y escalados, sin operación · <a href="index.html" style="color:var(--gold-light)">← volver a vista de Secretaría</a></div>
   <div class="topbar">
     <div class="crumbs"><b>Resumen ejecutivo</b></div>
   </div>
@@ -64,9 +64,9 @@
         <div class="kpi-hint">$276,790 de $493,000 · <b class="up">1 rubro sobregirado</b></div>
       </div>
       <div class="kpi k-crit">
-        <div class="kpi-label">Escalado a dirección</div>
-        <div class="kpi-num">1</div>
-        <div class="kpi-hint">requiere tu decisión</div>
+        <div class="kpi-label">Requieren tu decisión</div>
+        <div class="kpi-num">3</div>
+        <div class="kpi-hint">2 vistos buenos + 1 escalado</div>
       </div>
       <div class="kpi k-ok">
         <div class="kpi-label">Pagos completados (semana)</div>
@@ -78,6 +78,49 @@
     <div class="grid-31">
 
       <div class="stack">
+
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">🖋 Vistos buenos pendientes <span class="count">(2)</span></div>
+            <div class="right"><span class="small muted">nada se firma ni se cierra sin tu VoBo · decides aquí, la Secretaría ejecuta</span></div>
+          </div>
+          <div class="card-body flush">
+
+            <div class="alert-item">
+              <div class="alert-ico warn">✎</div>
+              <div class="alert-body">
+                <div class="alert-title">Contrato · CONTRATO-2026-018 — Dra. María Chan Poot · $24,000.00</div>
+                <div class="alert-meta">
+                  <span class="chip gold"><span class="dot"></span> VOBO CONTRATO</span>
+                  <span>Curso de Ciencia de Datos — CANACO · rubro Honorarios instructores (disponible: $31,160)</span>
+                  <span>Jurídico UADY aprobó <b>sin observaciones</b> el 3 jul · expediente COMPLETO</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="mockAction('VoBo otorgado — el contrato queda habilitado para firma', 'STATE_CHANGED · VOBO_DIRECCION → FIRMADO al firmar las partes')">Dar visto bueno</button>
+                <button class="btn sm" onclick="openModal('modal-devolver')">Devolver…</button>
+              </div>
+            </div>
+
+            <div class="alert-item">
+              <div class="alert-ico warn">▤</div>
+              <div class="alert-body">
+                <div class="alert-title">Cierre de proyecto · Curso de Riesgo Financiero</div>
+                <div class="alert-meta">
+                  <span class="chip gold"><span class="dot"></span> VOBO CIERRE</span>
+                  <span>ejercido $86,000 de $86,000 (100%) · sin desviación por rubro</span>
+                  <span>0 contratos abiertos · 0 pagos pendientes · cierre presupuestal consolidado</span>
+                </div>
+              </div>
+              <div class="alert-actions">
+                <button class="btn sm gold" onclick="mockAction('VoBo otorgado — el proyecto pasa a CERRADO', 'STATE_CHANGED · EN_CIERRE → CERRADO · decisión del Director')">Dar visto bueno</button>
+                <button class="btn sm" onclick="openModal('modal-devolver')">Devolver…</button>
+              </div>
+            </div>
+
+            <div class="empty-hint">Cada tarjeta trae lo necesario para decidir sin abrir el expediente. Si un VoBo lleva 48 h sin atenderse, el sistema te lo recuerda.</div>
+          </div>
+        </div>
 
         <div class="card">
           <div class="card-head">
@@ -153,7 +196,7 @@
               <li><span class="g-ico">✅</span><span><b>2 contratos firmados</b> y vigentes esta semana.</span></li>
               <li><span class="g-ico">⚠️</span><span><b>5 expedientes incompletos</b>, 2 con observaciones sin atender — Secretaría ya envió recordatorios.</span></li>
               <li><span class="g-ico">⚠️</span><span><b>3 complementos de pago</b> pendientes — bloquean nuevas contrataciones de esos participantes.</span></li>
-              <li><span class="g-ico">🔴</span><span><b>1 contrato sin respuesta</b> del despacho externo hace 4 días — 2.º recordatorio enviado hoy.</span></li>
+              <li><span class="g-ico">🔴</span><span><b>1 contrato sin respuesta</b> del Jurídico UADY hace 4 días — 2.º recordatorio enviado hoy.</span></li>
             </ul>
           </div>
         </div>
@@ -162,14 +205,36 @@
           <div class="card-head"><div class="card-title">Sobre esta vista</div></div>
           <div class="card-body">
             <p style="font-size:12.8px; line-height:1.55; color:var(--ink-2)">
-              Esta vista es de <b>solo lectura</b>: el Director ve el estado agregado y decide sobre lo escalado,
-              pero no opera expedientes ni pagos. Cada decisión que registres aquí queda en
-              <b>auditoría</b> y la ejecuta la Secretaría.
+              El Director <b>no opera</b> expedientes ni pagos: ve el estado agregado y decide solo dos cosas —
+              los <b>vistos buenos</b> (contratos y cierres, obligatorios por el dinero que manejan) y lo
+              <b>escalado</b> por la Secretaría. Cada tarjeta llega resumida para decidir en segundos;
+              cada decisión queda en <b>auditoría</b> y la ejecuta la Secretaría.
             </p>
           </div>
         </div>
 
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: devolver con comentario (RF_16 — el comentario es obligatorio) -->
+<div class="modal-backdrop" id="modal-devolver">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title">Devolver a Secretaría</div>
+      <button class="modal-x" onclick="closeModal('modal-devolver')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="field">
+        <label>Motivo (obligatorio)</label>
+        <textarea placeholder="Ej. el monto no coincide con lo acordado con el cliente — verificar antes de firmar"></textarea>
+      </div>
+      <p class="small muted">Tu comentario se registra como <b>observación</b> sobre el contrato o cierre: la Secretaría lo atiende y te vuelve a llegar cuando esté corregido. Sin motivo no se puede devolver.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" onclick="closeModal('modal-devolver')">Cancelar</button>
+      <button class="btn primary" onclick="closeModal('modal-devolver'); mockAction('Devuelto a Secretaría con tu comentario', 'STATE_CHANGED · VOBO_DIRECCION → OBSERVADO · observación creada')">Devolver ✓</button>
     </div>
   </div>
 </div>

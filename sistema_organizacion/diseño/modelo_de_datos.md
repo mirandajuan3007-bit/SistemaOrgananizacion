@@ -74,6 +74,7 @@ erDiagram
     EXPEDIENTE_REQUISITO ||--o{ DOCUMENTOS : "se satisface con"
     TIPOS_DOCUMENTO ||--o{ DOCUMENTOS : "clasifica"
     DOCUMENTOS ||--o{ DOCUMENTOS : "versiones (padre-hijo)"
+    EXPEDIENTES ||--o{ ENLACES_CARGA : "subida externa (RF_15)"
 
     CONTRATOS ||--o{ OBSERVACIONES : "recibe"
     DOCUMENTOS ||--o{ OBSERVACIONES : "recibe"
@@ -119,7 +120,7 @@ erDiagram
 | entra_oid | TEXT UNIQUE | object id de Microsoft Entra ID |
 | email | TEXT UNIQUE | correo institucional |
 | nombre | TEXT | |
-| rol | ENUM `rol_usuario` | ADMIN, SECRETARIA, DIRECTOR, INVESTIGADOR, REVISOR_EXTERNO |
+| rol | ENUM `rol_usuario` | ADMIN, SECRETARIA, DIRECTOR, INVESTIGADOR, REVISOR_JURIDICO |
 | unidad_id | UUID FK → unidades | unidad principal |
 | activo | BOOLEAN | bloqueo sin borrar historial (RF_01) |
 | participante_id | UUID FK → participantes NULL | vincula un usuario INVESTIGADOR con su propio expediente |
@@ -181,7 +182,11 @@ cierre presupuestal (RF_09 / cierre).
 
 #### `cierre_presupuestal`
 Uno por proyecto. Consolida estimado vs. ejercido con respaldo documental. Campos: `id`,
-`proyecto_id`, `estado`, `fecha_cierre`, `total_estimado`, `total_ejercido`, `observaciones`.
+`proyecto_id`, `estado`, `fecha_cierre`, `total_estimado`, `total_ejercido`, `observaciones`,
+`vobo_director_id` (FK → usuarios, NULL hasta otorgarse), `fecha_vobo`.
+
+> El proyecto no pasa a `CERRADO` sin `vobo_director_id` registrado (RF_16). La decisión
+> queda además en `audit_log` como toda transición.
 
 ---
 
@@ -250,7 +255,23 @@ EN_REVISION, OBSERVADO, APROBADO, RECHAZADO, EXCEPTUADO), `exceptuado_por_id`,
 | estado | ENUM `estado_documento` | |
 | documento_padre_id | UUID FK NULL → documentos | versión anterior |
 | es_version_vigente | BOOLEAN | solo una vigente por requisito |
-| subido_por_id | UUID FK → usuarios | |
+| subido_por_id | UUID FK → usuarios NULL | null cuando entra por enlace de carga (RF_15 fase 2) |
+| created_at | TIMESTAMPTZ | |
+
+#### `enlaces_carga` (RF_15, fase 2)
+Enlace tokenizado de subida por expediente — los participantes externos no tienen cuenta
+(usan Gmail/Hotmail); este enlace es su único acceso, acotado a subir los faltantes de su
+propio expediente.
+
+| campo | tipo | notas |
+|---|---|---|
+| id | UUID PK | |
+| unidad_id | UUID FK | |
+| expediente_id | UUID FK → expedientes | |
+| token_hash | TEXT UNIQUE | se guarda solo el hash, nunca el token en claro |
+| expira_en | TIMESTAMPTZ | |
+| usos_maximos / usos_realizados | INT | |
+| revocado | BOOLEAN | revocable por la Secretaría |
 | created_at | TIMESTAMPTZ | |
 
 ---
@@ -324,15 +345,21 @@ OBSERVACION_ABIERTA, PAGO_PENDIENTE, COMPLEMENTO_PENDIENTE), `severidad` (NORMAL
 ## 4. Enumeraciones y estados
 
 ```
-rol_usuario:        ADMIN | SECRETARIA | DIRECTOR | INVESTIGADOR | REVISOR_EXTERNO
+rol_usuario:        ADMIN | SECRETARIA | DIRECTOR | INVESTIGADOR | REVISOR_JURIDICO
 tipo_participante:  HONORARIOS | BECA
 estado_proyecto:    BORRADOR | ACTIVO | EN_CIERRE | CERRADO | SUSPENDIDO
 estado_participante:ACTIVO | INCOMPLETO | OBSERVADO | LISTO_PARA_CONTRATO | EN_PAGO | CERRADO | CANCELADO
 estado_documento:   PENDIENTE | RECIBIDO | EN_REVISION | OBSERVADO | APROBADO | RECHAZADO | EXCEPTUADO
-estado_contrato:    BORRADOR | ENVIADO | EN_REVISION | OBSERVADO | APROBADO | FIRMADO | VIGENTE | CERRADO
+estado_contrato:    BORRADOR | ENVIADO | EN_REVISION | OBSERVADO | APROBADO | VOBO_DIRECCION | FIRMADO | VIGENTE | CERRADO
 estado_pago:        PENDIENTE | EN_PROCESO | CHEQUE_EMITIDO | PENDIENTE_COBRO | COBRADO | COMPLEMENTO_PENDIENTE | COMPLETO | INCOMPLETO
 estado_observacion: PENDIENTE | ATENDIDA | VALIDADA | DESCARTADA
 ```
+
+> `VOBO_DIRECCION` (RF_16): entre `APROBADO` y `FIRMADO`; solo el rol DIRECTOR lo resuelve.
+> `REVISOR_JURIDICO` (antes `REVISOR_EXTERNO`): confirmado 2026-07-08 que el revisor de
+> contratos es el **jurídico de la UADY** (cuenta institucional, usará el sistema), no un
+> despacho contratado. Los **participantes externos no son usuarios**: no tienen login y usan
+> correo personal (Gmail/Hotmail) + enlaces tokenizados (RF_15).
 
 Las **transiciones válidas** entre estos estados están en
 [`diagramas/02_maquinas_de_estado.md`](diagramas/02_maquinas_de_estado.md).
@@ -369,3 +396,13 @@ Estos puntos no están cerrados en los requisitos y conviene decidirlos antes de
 4. **[RESUELTO]** Cadencia del barrido n8n: se adopta el consenso de RNF_11 como definitivo —
    **crítico 1h laboral / diario 7:00 / nocturno 2:00**, umbrales configurables por unidad.
    Justificación en `ideas/preguntas.md`.
+5. **[RESUELTO 2026-07-08]** Recepción de documentos externos: **híbrido por fases** (RF_15).
+   Fase 1: correo asistido (M4 + clasificación confirmada por Secretaría). Fase 2: enlaces
+   tokenizados (`enlaces_carga`). Portal con login: diferido. Los participantes externos usan
+   Gmail/Hotmail — sin Entra ID para ellos.
+6. **[RESUELTO 2026-07-08]** El Director **sí aprueba formalmente** contratos y cierres
+   (RF_16): estado `VOBO_DIRECCION` en contratos y `vobo_director_id` en el cierre
+   presupuestal. La presentación al Director debe ser resumida para decisión rápida.
+7. **[RESUELTO 2026-07-08]** El revisor de contratos es el **jurídico de la UADY** (rol
+   `REVISOR_JURIDICO`, cuenta institucional): se le pedirá operar dentro del sistema; el
+   correo por folio (RF_08) queda como canal alterno.

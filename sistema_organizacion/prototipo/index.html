@@ -29,6 +29,7 @@
     <a href="contrato.html"><span class="ico">✎</span> Contratos</a>
     <a href="pagos.html"><span class="ico">$</span> Pagos <span class="badge-gold">3</span></a>
     <div class="nav-label">Sistema</div>
+    <a href="automatizaciones.html"><span class="ico">⚡</span> Automatizaciones <span class="badge-gold">3</span></a>
     <a href="#"><span class="ico">≡</span> Auditoría</a>
     <a href="#"><span class="ico">⚙</span> Configuración</a>
   </nav>
@@ -100,7 +101,7 @@
             <div class="alert-item">
               <div class="alert-ico crit">⏱</div>
               <div class="alert-body">
-                <div class="alert-title"><a href="contrato.html">CONTRATO-2026-014</a> · Mtro. Daniel Couoh Uc — sin respuesta del despacho externo</div>
+                <div class="alert-title"><a href="contrato.html">CONTRATO-2026-014</a> · Mtro. Daniel Couoh Uc — sin respuesta del Jurídico UADY</div>
                 <div class="alert-meta">
                   <span class="chip crit"><span class="dot"></span> 96 h SIN MOVIMIENTO</span>
                   <span>Diplomado en Estadística Aplicada</span>
@@ -210,7 +211,7 @@
                 <div class="alert-title">1 correo recibido <b>sin folio reconocible</b> — requiere asociación manual</div>
                 <div class="alert-meta">
                   <span class="chip info"><span class="dot"></span> POR ASOCIAR</span>
-                  <span>de: notificaciones@despachocontable.mx · asunto: "Re: contrato dipl."</span>
+                  <span>de: notificaciones@correo.uady.mx · asunto: "Re: contrato dipl."</span>
                 </div>
               </div>
               <div class="alert-actions">
@@ -232,7 +233,7 @@
             <div class="timeline">
               <div class="tl-item ok">
                 <div class="tl-head"><span class="tl-state">Correo asociado por folio</span><span class="src n8n">N8N_FLOW</span></div>
-                <div class="tl-desc">Respuesta del despacho ligada a <b>CONTRATO-2026-021</b> → estado: EN_REVISIÓN</div>
+                <div class="tl-desc">Respuesta del Jurídico ligada a <b>CONTRATO-2026-021</b> → estado: EN_REVISIÓN</div>
                 <div class="tl-date">hoy · 8:41</div>
               </div>
               <div class="tl-item">
@@ -335,11 +336,11 @@
       <button class="modal-x" onclick="closeModal('modal-recordatorio')">✕</button>
     </div>
     <div class="modal-body">
-      <div class="field"><label>Para</label><input type="text" value="revision@despachocontable.mx" readonly></div>
+      <div class="field"><label>Para</label><input type="text" value="juridico@correo.uady.mx" readonly></div>
       <div class="field"><label>Asunto</label><input type="text" value="Seguimiento CONTRATO-2026-014 — Diplomado en Estadística Aplicada" readonly></div>
       <div class="field">
         <label>Mensaje (editable)</label>
-        <textarea>Estimado despacho:
+        <textarea>Estimado Departamento Jurídico:
 
 Le escribimos para dar seguimiento al contrato con folio CONTRATO-2026-014, enviado a revisión el 2 de julio. A la fecha no hemos recibido respuesta.
 
@@ -352,7 +353,7 @@ Secretaría Administrativa · Facultad de Matemáticas, UADY</textarea>
     </div>
     <div class="modal-foot">
       <button class="btn" onclick="closeModal('modal-recordatorio')">Cancelar</button>
-      <button class="btn primary" onclick="closeModal('modal-recordatorio'); mockAction('Recordatorio enviado a despacho', 'source: WEB · vía Outlook/Graph')">Confirmar y enviar ✓</button>
+      <button class="btn primary" onclick="closeModal('modal-recordatorio'); mockAction('Recordatorio enviado al Jurídico', 'source: WEB · vía Outlook/Graph')">Confirmar y enviar ✓</button>
     </div>
   </div>
 </div>
