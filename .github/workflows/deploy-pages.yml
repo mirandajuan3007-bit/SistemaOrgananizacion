@@ -1,0 +1,45 @@
+name: Desplegar prototipo en GitHub Pages
+
+# Publica sistema_organizacion/prototipo/ como sitio estático en Pages.
+# El index.html del prototipo queda en la raíz del sitio publicado.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sistema_organizacion/prototipo/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Subir artefacto del sitio
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: sistema_organizacion/prototipo
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
