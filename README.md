@@ -129,7 +129,7 @@ Cada caso de uso cita los requisitos que cumple y sus reglas de negocio (`RN-DOM
 
 ## 🛠️ Stack previsto
 
-Según la [guía de presentación](sistema_organizacion/guia_presentacion.md), el sistema se construirá con: **NestJS/TypeScript** (backend), **Next.js** (interfaz), **PostgreSQL + pgvector** (datos y búsqueda por significado), **n8n** (orquestador de automatizaciones), **BullMQ** (tareas en segundo plano), un **microservicio OCR** (lectura de documentos) e integración con **Microsoft 365** (Entra ID, Outlook, OneDrive). El asistente usa **modelos de IA de Claude**.
+ el sistema se construirá con: **NestJS/TypeScript** (backend), **Next.js** (interfaz), **PostgreSQL + pgvector** (datos y búsqueda por significado), **n8n** (orquestador de automatizaciones), **BullMQ** (tareas en segundo plano), un **microservicio OCR** (lectura de documentos) e integración con **Microsoft 365** (Entra ID, Outlook, OneDrive). El asistente usa **modelos de IA de Claude sonnet**.
 
 > Parte de la documentación de diseño (`modelo_de_datos.md`, `03_arquitectura_logica.md`) se escribió de forma **agnóstica al stack** y marca algunas piezas como *"por decidir"*; la guía de presentación refleja las decisiones ya tomadas.
 
